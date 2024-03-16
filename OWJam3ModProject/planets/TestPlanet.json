@@ -15,5 +15,14 @@
 	"ReferenceFrame": {
 		"hideInMap": false,
 		"targetColliderRadius": 500
+	},
+	"Props": {
+		"details": [
+			{
+				"assetBundle": "assets/owmodjam3projectbundle",
+				"path": "Assets/_OWModJam3Project/Bundle/Prefabs/Cube.prefab",
+				"position": { "y": 100 }
+			}
+		]
 	}
 }
