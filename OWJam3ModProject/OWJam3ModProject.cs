@@ -1,10 +1,14 @@
 ﻿using OWML.Common;
 using OWML.ModHelper;
+using System.Drawing;
 
 namespace OWJam3ModProject
 {
     public class OWJam3ModProject : ModBehaviour
     {
+
+        public static OWJam3ModProject instance = null;
+
         private void Awake()
         {
             // You won't be able to access OWML's mod helper in Awake.
@@ -27,6 +31,9 @@ namespace OWJam3ModProject
                 if (loadScene != OWScene.SolarSystem) return;
                 ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
             };
+
+            //Singleton
+            instance = this;
         }
     }
 

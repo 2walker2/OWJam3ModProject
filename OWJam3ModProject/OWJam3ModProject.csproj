@@ -12,12 +12,14 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugType>none</DebugType>
   </PropertyGroup>
-  <PropertyGroup Label="UserMacros">
-	<UNITY_DLL_FOLDER>C:\Users\dwalk\Outer Wilds Modding\OWJam3Root\OWJam3UnityProject\Assets\_OWModJam3Project\</UNITY_DLL_FOLDER>
-  </PropertyGroup>
-	<ItemGroup>
+  <ItemGroup>
     <PackageReference Include="OWML" Version="2.9.8" />
     <PackageReference Include="OuterWildsGameLibs" Version="1.1.14.768" />
+	<Reference Include="NewHorizons">
+		<HintPath Condition="Exists('$(OuterWildsModDirectory)xen.NewHorizons\NewHorizons.dll')">$(OuterWildsModDirectory)xen.NewHorizons\NewHorizons.dll</HintPath>
+		<HintPath Condition="Exists('$(OuterWildsModDirectory)xen.NewHorizons.Debug\NewHorizons.dll')">$(OuterWildsModDirectory)xen.NewHorizons.Debug\NewHorizons.dll</HintPath>
+		<Private>False</Private>
+	</Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="default-config.json">
@@ -45,6 +47,6 @@
     </None>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(OutputPath)OWJam3ModProject.dll&quot; &quot;$(UNITY_DLL_FOLDER)OWJam3ModProject.dll&quot;" />
+    <Exec Command="copy &quot;$(OutputPath)OWJam3ModProject.dll&quot; &quot;$(UnityDLLFolder)OWJam3ModProject.dll&quot;" />
   </Target>
 </Project>

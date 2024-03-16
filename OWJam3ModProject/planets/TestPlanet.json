@@ -5,7 +5,7 @@
 	"Base": {
 		"gravityFallOff": "linear",
 		"hasMapMarker": true,
-		"surfaceGravity": 12,
+		"surfaceGravity": 4,
 		"surfaceSize":  100
 	},
 	"Orbit": {
@@ -19,8 +19,18 @@
 		"details": [
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/Bundle/Prefabs/TestPlanet.prefab",
+				"path": "Assets/_OWModJam3Project/Bundle/TestPlanet.prefab",
 				"keepLoaded": true
+			}
+		]
+	},
+	"Bramble": {
+		"nodes": [
+			{
+				"position": { "y": 65 },
+				"scale":  0.1,
+				"name": "TeamErnesto_TestNode",
+				"linksTo": "Test Dimension"
 			}
 		]
 	}

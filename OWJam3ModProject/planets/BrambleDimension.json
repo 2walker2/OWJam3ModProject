@@ -1,0 +1,46 @@
+{
+	"$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
+	"name": "Test Dimension",
+	"starSystem": "Jam3",
+	"Base": {
+	},
+	"removeChildren": [
+		"Sector/Geometry",
+		"Sector/Effects/Effects_DB_Crawlies (2)",
+		"Sector/OuterWarp"
+	],
+	"Orbit": {
+		"isStatic": true,
+		"staticPosition": { "y": -30000 }
+	},
+	"Props": {
+		"details": [
+			{
+				"assetBundle": "assets/owmodjam3projectbundle",
+				"path": "Assets/_OWModJam3Project/Bundle/SimulationRoot.prefab"
+			},
+			{
+				"assetBundle": "assets/owmodjam3projectbundle",
+				"path": "Assets/_OWModJam3Project/Bundle/SimulationShell.prefab",
+				"scale": 2000
+			}
+		]
+	},
+	"Bramble": {
+		"dimension": {
+			"fogTint": {
+				"r": 0,
+				"g": 0,
+				"b": 0,
+				"a": 0
+			},
+			"fogDensity": 0,
+			"vinePrefab": "none",
+			"radius": 1000,
+			"linksTo": "TeamErnesto_TestNode"
+		}
+	},
+	"ReferenceFrame": {
+		"enabled":  false
+	}
+}
