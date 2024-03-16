@@ -1,0 +1,19 @@
+{
+	"$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
+	"name": "Test Planet",
+	"starSystem": "Jam3",
+	"Base": {
+		"gravityFallOff": "linear",
+		"groundSize": 100,
+		"hasMapMarker": true,
+		"surfaceGravity": 12,
+		"surfaceSize":  100
+	},
+	"Orbit": {
+		"isStatic": true
+	},
+	"ReferenceFrame": {
+		"hideInMap": false,
+		"targetColliderRadius": 500
+	}
+}
