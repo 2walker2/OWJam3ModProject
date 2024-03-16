@@ -4,7 +4,6 @@
 	"starSystem": "Jam3",
 	"Base": {
 		"gravityFallOff": "linear",
-		"groundSize": 100,
 		"hasMapMarker": true,
 		"surfaceGravity": 12,
 		"surfaceSize":  100
@@ -20,8 +19,8 @@
 		"details": [
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/Bundle/Prefabs/Cube.prefab",
-				"position": { "y": 100 }
+				"path": "Assets/_OWModJam3Project/Bundle/Prefabs/TestPlanet.prefab",
+				"keepLoaded": true
 			}
 		]
 	}

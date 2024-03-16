@@ -12,7 +12,10 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugType>none</DebugType>
   </PropertyGroup>
-  <ItemGroup>
+  <PropertyGroup Label="UserMacros">
+	<UNITY_DLL_FOLDER>C:\Users\dwalk\Outer Wilds Modding\OWJam3Root\OWJam3UnityProject\Assets\_OWModJam3Project\</UNITY_DLL_FOLDER>
+  </PropertyGroup>
+	<ItemGroup>
     <PackageReference Include="OWML" Version="2.9.8" />
     <PackageReference Include="OuterWildsGameLibs" Version="1.1.14.768" />
   </ItemGroup>
@@ -41,4 +44,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(OutputPath)OWJam3ModProject.dll&quot; &quot;$(UNITY_DLL_FOLDER)OWJam3ModProject.dll&quot;" />
+  </Target>
 </Project>
