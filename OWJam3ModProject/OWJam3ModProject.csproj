@@ -47,6 +47,6 @@
     </None>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(OutputPath)OWJam3ModProject.dll&quot; &quot;$(UnityDLLFolder)OWJam3ModProject.dll&quot;" />
+    <Exec Command="copy &quot;$(OutputPath)OWJam3ModProject.dll&quot; &quot;$(UnityDLLFolder)OWJam3ModProject.dll&quot;&#xD;&#xA;copy &quot;$(OutputPath)OWJam3ModProject.pdb&quot; &quot;$(UnityDLLFolder)OWJam3ModProject.pdb&quot;" />
   </Target>
 </Project>

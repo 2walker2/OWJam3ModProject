@@ -6,8 +6,8 @@ namespace OWJam3ModProject
 {
     public class OWJam3ModProject : ModBehaviour
     {
-
         public static OWJam3ModProject instance = null;
+        public static bool inGame = false;
 
         private void Awake()
         {
@@ -34,6 +34,9 @@ namespace OWJam3ModProject
 
             //Singleton
             instance = this;
+
+            //Mark as being in game
+            inGame = true;
         }
     }
 
