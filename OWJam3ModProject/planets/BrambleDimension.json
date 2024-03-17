@@ -17,11 +17,11 @@
 		"details": [
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/Bundle/SimulationRoot.prefab"
+				"path": "Assets/_OWModJam3Project/_Bundle/SimulationRoot.prefab"
 			},
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/Bundle/SimulationShell.prefab",
+				"path": "Assets/_OWModJam3Project/_Bundle/SimulationShell.prefab",
 				"scale": 2000
 			}
 		]

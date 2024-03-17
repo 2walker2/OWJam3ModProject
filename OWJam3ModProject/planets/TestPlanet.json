@@ -19,17 +19,32 @@
 		"details": [
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/Bundle/TestPlanet.prefab",
+				"path": "Assets/_OWModJam3Project/_Bundle/TestPlanet.prefab",
+				"rename": "PlanetPrefab",
 				"keepLoaded": true
+			}
+		],
+		"singularities": [
+			{
+				"parentPath": "Sector/PlanetPrefab/VesselRoot/SingularityRoot",
+				"isRelativeToParent": true,
+				"rename": "VesselWarpInSingularity",
+				"type": "whiteHole",
+				"horizonRadius": 0.5,
+				"curve": [
+					{
+						"time": 0,
+						"value": 1
+					}
+				]
 			}
 		]
 	},
 	"Bramble": {
 		"nodes": [
 			{
-				"position": { "y": 65 },
-				"scale":  0.1,
-				"name": "TeamErnesto_TestNode",
+				"position": { "y": -120 },
+				"scale": 0.1,
 				"linksTo": "Test Dimension"
 			}
 		]
