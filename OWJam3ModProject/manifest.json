@@ -6,5 +6,5 @@
   "uniqueName": "TeamErnesto.OWJam3ModProject",
   "version": "0.1.0",
   "owmlVersion": "2.9.8",
-  "dependencies": ["xen.NewHorizons"]
+  "dependencies": [ "xen.NewHorizons", "xen.ModJam3" ]
 }

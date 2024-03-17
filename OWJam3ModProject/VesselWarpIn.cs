@@ -5,15 +5,19 @@ using NewHorizons;
 using UnityEngine.InputSystem;
 using System.Collections;
 using NewHorizons.Components.SizeControllers;
+using System;
 
 namespace OWJam3ModProject
 {
     internal class VesselWarpIn : MonoBehaviour
     {
+        #region Variables
         [Tooltip("The root GameObject of the vessel. Activated when the warp completes")]
         [SerializeField] GameObject vessel;
         [Tooltip("The root Transform of the singularity. Scaled as the warp occurs")]
         [SerializeField] Transform singularityRoot;
+        [Tooltip("The orb slot used to trigger the warp")]
+        [SerializeField] NomaiInterfaceSlot orbSlot;
         [Tooltip("The maximum scale the singularity should have")]
         [SerializeField] float maxSingularityScale = 150;
         [Tooltip("How fast the singularity should scale up")]
@@ -29,7 +33,9 @@ namespace OWJam3ModProject
         SingularitySizeController singularitySizeController;
         [Tooltip("The keyframe array to use to control the singularity's size")]
         Keyframe[] singularitySizeKeyframes;
+        #endregion
 
+        #region Unity Methods
         void Start()
         {
             //Initialize
@@ -39,31 +45,30 @@ namespace OWJam3ModProject
             singularitySizeKeyframes = new Keyframe[1];
             singularitySizeKeyframes[0] = new Keyframe(0, 0);
             singularitySizeController.scaleCurve.keys = singularitySizeKeyframes;
+
+            //Register callback
+            orbSlot.OnSlotActivated += StartWarpVessel;
         }
 
-        void Update()
+        void OnDestroy()
         {
-#if DEBUG
-            //Debug key to warp in the vessel
-            if (Keyboard.current.wKey.IsPressed() && Keyboard.current.vKey.wasPressedThisFrame)
+            //Unregister callbacks
+            orbSlot.OnSlotActivated -= StartWarpVessel;
+        }
+        #endregion
+
+        #region Custom Methods
+        void StartWarpVessel(NomaiInterfaceSlot slot = null)
+        {
+            if (!warpStarted)
             {
-                StartWarpVessel();
-            }
-#endif
-        }
-
-        [ContextMenu("Warp In Vessel")]
-        void StartWarpVessel()
-        {
-            //if (!warpStarted)
+                warpStarted = true;
                 StartCoroutine(WarpVessel());
+            }
         }
 
         IEnumerator WarpVessel()
         {
-            Debug.Log("Starting warp in");
-            warpStarted = true;
-
             //Scale up the singularity to its maximum radius
             float singularityScale = 0;
             while (singularityScale < maxSingularityScale)
@@ -92,4 +97,5 @@ namespace OWJam3ModProject
             yield return null;
         }
     }
+    #endregion
 }
