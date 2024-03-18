@@ -17,12 +17,23 @@
 		"details": [
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/_Bundle/SimulationRoot.prefab"
+				"path": "Assets/_OWModJam3Project/_Bundle/SimulationRoot.prefab",
+				"rename": "SimulationPrefab"
 			},
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
 				"path": "Assets/_OWModJam3Project/_Bundle/SimulationShell.prefab",
+				"rename": "SimulationShell",
 				"scale": 2000
+			}
+		],
+		"remotes": [
+			{
+				"id": "TeamErnesto_Simulation",
+				"platform": {
+					"parentPath": "Sector/SimulationPrefab/FoyerRoot/ProjectionPoolRoot",
+					"isRelativeToParent": true
+				}
 			}
 		]
 	},

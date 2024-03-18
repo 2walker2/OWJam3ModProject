@@ -11,10 +11,10 @@ namespace OWJam3ModProject
         {
             base.TriggerDebug();
 
-            OWRigidbody playerBody = Locator.GetPlayerBody();
+            PlayerBody playerBody = (PlayerBody)Locator.GetPlayerBody();
             if (playerBody != null)
             {
-                playerBody.SetPosition(transform.position);
+                playerBody.WarpToPositionRotation(transform.position, transform.rotation);
                 playerBody.SetVelocity(Vector3.zero);
                 playerBody.SetAngularVelocity(Vector3.zero);
             }
