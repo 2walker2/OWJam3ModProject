@@ -12,6 +12,8 @@ namespace OWJam3ModProject
     {
         const string ExitedProjectionPoolEvent = "ExitNomaiRemoteCamera";
 
+        [Tooltip("The ID of the projection pool you warp to")]
+        [SerializeField] string warpPoolId;
         [Tooltip("Where to place any item the player tries to bring it with them")]
         [SerializeField] Transform itemTransform;
 
@@ -24,31 +26,30 @@ namespace OWJam3ModProject
             GlobalMessenger.AddListener(ExitedProjectionPoolEvent, OnExitedProjectionPool);
         }
 
-        private void OnEnteredProjectionPool()
-        {
-            //Make sure we're using the right stone and platform here
-        }
-
         private void OnExitedProjectionPool()
         {
             //Make sure the teleporting projection pool is the one that fired the event
             if (projectionPool.GetPlatformState() == NomaiRemoteCameraPlatform.State.Disconnecting_FadeIn)
             {
-                //Teleport player to simulation
-                PlayerBody playerBody = (PlayerBody)Locator.GetPlayerBody();
-                Transform target = projectionPool._playerHologram;
-                if (playerBody != null)
+                //Make sure the pool is connected to the one it should warp you to
+                if (projectionPool._slavePlatform._id.ToString() == warpPoolId)
                 {
-                    playerBody.WarpToPositionRotation(target.position, target.rotation);
-                    playerBody.SetVelocity(Vector3.zero);
-                    playerBody.SetAngularVelocity(Vector3.zero);
+                    //Teleport player to simulation
+                    PlayerBody playerBody = (PlayerBody)Locator.GetPlayerBody();
+                    Transform target = projectionPool._playerHologram;
+                    if (playerBody != null)
+                    {
+                        playerBody.WarpToPositionRotation(target.position, target.rotation);
+                        playerBody.SetVelocity(Vector3.zero);
+                        playerBody.SetAngularVelocity(Vector3.zero);
+                    }
+
+                    //Turn off flashlight to make transition more seamless
+                    Locator.GetFlashlight().TurnOff();
+
+                    //Prevent the player from taking items with them
+                    ForceDropItem();
                 }
-
-                //Turn off flashlight to make transition more seamless
-                Locator.GetFlashlight().TurnOff();
-
-                //Prevent the player from taking items with them
-                ForceDropItem();
             }
         }
 
