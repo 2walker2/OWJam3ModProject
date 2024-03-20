@@ -32,8 +32,8 @@ namespace OWJam3ModProject
         /*[Tooltip("The tiles to start already spawned")]
         [SerializeField] GameObject[] startingTilePrefabs;
         [Tooltip("The positions of the tiles to start already spawned")]
-        [SerializeField] Vector2Int[] startingTilePositions;
-        [Tooltip("The transforms to generate around")]*/
+        [SerializeField] Vector2Int[] startingTilePositions;*/
+        [Tooltip("The transforms to generate around")]
         [SerializeField] List<Transform> generatorTransforms = new List<Transform>();
 
         [Header("Editor")]
@@ -42,8 +42,10 @@ namespace OWJam3ModProject
 
         [Tooltip("The tiles that have been generated")]
         Dictionary<Vector2Int, ProceduralTile> generatedTiles;
-        [Tooltip("The tile the player was on last frame")]
-        Vector2Int playerTilePrevious = new Vector2Int(-1000000, -10000000);
+        [Tooltip("The tile each generator transform was on last frame")]
+        Dictionary<Transform, Vector2Int> generatorTransformsTilePrevious = new Dictionary<Transform, Vector2Int>();
+        [Tooltip("Whether each generator's gameObject was active last frame")]
+        Dictionary<Transform, bool> generatorTransformsActivePrevious = new Dictionary<Transform, bool>();
         [Tooltip("Colliders to not generate inside")]
         List<Shape> exclusionRegions = new List<Shape>();
         #endregion
@@ -80,6 +82,14 @@ namespace OWJam3ModProject
                 }
             }
 
+            //Initialize previous generator positions and activations states
+            Vector2Int initialTilePrevious = new Vector2Int(-10000, -10000);
+            foreach (Transform generatorTransform in generatorTransforms)
+            {
+                generatorTransformsTilePrevious[generatorTransform] = initialTilePrevious;
+                generatorTransformsActivePrevious[generatorTransform] = generatorTransform.gameObject.activeSelf;
+            }
+
             //Place starting tiles
             /*for (int i = 0; i < startingTilePrefabs.Length; i++)
             {
@@ -111,18 +121,75 @@ namespace OWJam3ModProject
 
         void GenerateAroundTransforms()
         {
-            //Iterate over the generation transforms
+            //Iterate over the generation transforms to generate tiles
+            Dictionary<Transform, Vector2Int> generatorTiles = new Dictionary<Transform, Vector2Int>();
+            bool anyGeneratorChanged = false;
             foreach (Transform generatorTransform in generatorTransforms)
             {
-                //Get the player's position in the generator's local space
-                Vector3 localPlayerPosition = generationRoot.InverseTransformPoint(generatorTransform.position);
-
-                //Figure out what tile the player is on
-                Vector2Int playerTile = new Vector2Int(Mathf.FloorToInt((localPlayerPosition.x / tileSize) + 0.5f), Mathf.FloorToInt((localPlayerPosition.z / tileSize) + 0.5f));
-                if (playerTile != playerTilePrevious)
+                //Skip if transform's gameObject is deactivated
+                if (!generatorTransform.gameObject.activeSelf)
                 {
-                    GenerateArea(playerTile);
-                    playerTilePrevious = playerTile;
+                    if (generatorTransformsActivePrevious[generatorTransform])
+                    {
+                        generatorTransformsActivePrevious[generatorTransform] = false;
+                        anyGeneratorChanged = true;
+                    }
+                    continue;
+                }      
+
+                //Get the generator's position in the generator's local space
+                Vector3 localGeneratorPosition = generationRoot.InverseTransformPoint(generatorTransform.position);
+
+                //Figure out what tile the generator is on
+                Vector2Int generatorTile = new Vector2Int(Mathf.FloorToInt((localGeneratorPosition.x / tileSize) + 0.5f), Mathf.FloorToInt((localGeneratorPosition.z / tileSize) + 0.5f));
+                generatorTiles[generatorTransform] = generatorTile;
+
+                //Generate if tile has changed or generator has just activated
+                if (generatorTile != generatorTransformsTilePrevious[generatorTransform] || !generatorTransformsActivePrevious[generatorTransform])
+                {
+                    GenerateArea(generatorTile);
+                    generatorTransformsActivePrevious[generatorTransform] = true;
+                }
+
+                //Mark whether this generator's tile changed
+                if (generatorTile != generatorTransformsTilePrevious[generatorTransform])
+                {
+                    generatorTransformsTilePrevious[generatorTransform] = generatorTile;
+                    anyGeneratorChanged = true;
+                }
+            }
+            
+            //If any generator has changed tile or been deactivated, iterate over the tiles to clear tiles that are no longer within the range of any generator
+            if (anyGeneratorChanged)
+            {
+                HashSet<Vector2Int> tilesToDestroy = new HashSet<Vector2Int>();
+                foreach (KeyValuePair<Vector2Int, ProceduralTile> pair in generatedTiles)
+                {
+                    //Check each generator to see if this tile is in range
+                    bool insideRange = false;
+                    foreach (Transform generatorTransform in generatorTransforms)
+                    {
+                        //Skip if generator's gameObject is deactivated
+                        if (!generatorTransform.gameObject.activeSelf)
+                            continue;
+
+                        if (Mathf.Abs(pair.Key.x - generatorTiles[generatorTransform].x) <= generationRange && Mathf.Abs(pair.Key.y - generatorTiles[generatorTransform].y) <= generationRange)
+                        {
+                            insideRange = true;
+                            break;
+                        }
+                    }
+                    //If the tile is not in range of any generator, add it to the list for destruction
+                    if (!insideRange)
+                        tilesToDestroy.Add(pair.Key);
+                }
+
+                //Destroy all tiles found to not be in range of any generator
+                foreach (Vector2Int tileCoordinates in tilesToDestroy)
+                {
+                    Debug.Log("Destroying tile at coordinates: " + tileCoordinates);
+                    Destroy(generatedTiles[tileCoordinates].gameObject);
+                    generatedTiles.Remove(tileCoordinates);
                 }
             }
         }
@@ -185,11 +252,6 @@ namespace OWJam3ModProject
             //Add it to the dictionary
             ProceduralTile spawnedTile = spawnedGO.GetComponent<ProceduralTile>();
             generatedTiles[tileCoordinates] = spawnedTile;
-        }
-
-        void Clear()
-        {
-            generationRoot.DestroyAllChildrenImmediate();
         }
         #endregion
 
