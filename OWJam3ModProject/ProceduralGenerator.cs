@@ -25,6 +25,10 @@ namespace OWJam3ModProject
         [SerializeField] Transform generationRoot;
         [Tooltip("The set of prefabs that can be generated")]
         [SerializeField] GameObject[] spawnablePrefabs;
+        [Tooltip("The set of unique tile prefabs that can be generated (only appear once)")]
+        [SerializeField] GameObject[] uniquePrefabs;
+        [Tooltip("The chance of each unique prefab spawning every time a tile is generated (must have same length as unique prefabs list)")]
+        [SerializeField] float[] uniqueChances;
         [Tooltip("The size of a tile in the grid")]
         [SerializeField] float tileSize;
         [Tooltip("The distance around the player to generate tiles")]
@@ -41,13 +45,15 @@ namespace OWJam3ModProject
         [SerializeField] Transform[] editorGeneratorTransforms;
 
         [Tooltip("The tiles that have been generated")]
-        Dictionary<Vector2Int, ProceduralTile> generatedTiles;
+        Dictionary<Vector2Int, GameObject> generatedTiles;
         [Tooltip("The tile each generator transform was on last frame")]
         Dictionary<Transform, Vector2Int> generatorTransformsTilePrevious = new Dictionary<Transform, Vector2Int>();
         [Tooltip("Whether each generator's gameObject was active last frame")]
         Dictionary<Transform, bool> generatorTransformsActivePrevious = new Dictionary<Transform, bool>();
         [Tooltip("Colliders to not generate inside")]
         List<Shape> exclusionRegions = new List<Shape>();
+        [Tooltip("Saved coordinates of unique tiles (GameObject is prefab)")]
+        Dictionary<Vector2Int, GameObject> uniqueTilePositions = new Dictionary<Vector2Int, GameObject>();
         #endregion
 
         #region Unity Methods
@@ -61,7 +67,7 @@ namespace OWJam3ModProject
 
         void Start()
         {
-            generatedTiles = new Dictionary<Vector2Int, ProceduralTile>();
+            generatedTiles = new Dictionary<Vector2Int, GameObject>();
 
             //In-game initialization
             if (OWJam3ModProject.inGame)
@@ -163,7 +169,7 @@ namespace OWJam3ModProject
             if (anyGeneratorChanged)
             {
                 HashSet<Vector2Int> tilesToDestroy = new HashSet<Vector2Int>();
-                foreach (KeyValuePair<Vector2Int, ProceduralTile> pair in generatedTiles)
+                foreach (KeyValuePair<Vector2Int, GameObject> pair in generatedTiles)
                 {
                     //Check each generator to see if this tile is in range
                     bool insideRange = false;
@@ -238,8 +244,24 @@ namespace OWJam3ModProject
             }
 
             //Find the tile prefab
-            GameObject spawnPrefab = prefab;
-            if (spawnPrefab == null)
+            GameObject spawnPrefab = prefab; //Specified tile
+            if (uniqueTilePositions.ContainsKey(tileCoordinates)) //Previously saved unique tile
+                spawnPrefab = uniqueTilePositions[tileCoordinates];
+            if (spawnPrefab == null) //Random unique tile
+            {
+                for (int i=0; i<uniquePrefabs.Length; i++) //Check chance of each unique tile spawning
+                {
+                    if (uniquePrefabs[i] != null && UnityEngine.Random.Range(0.0f, 1.0f) < uniqueChances[i])
+                    {
+                        //Select unique tile, remove it from the available unique tiles, and save position
+                        spawnPrefab = uniquePrefabs[i];
+                        uniquePrefabs[i] = null;
+                        uniqueTilePositions[tileCoordinates] = spawnPrefab;
+                        break;
+                    }
+                }
+            }
+            if (spawnPrefab == null) //Random standard tile
             {
                 int spawnPrefabIndex = UnityEngine.Random.Range(0, spawnablePrefabs.Length);
                 spawnPrefab = spawnablePrefabs[spawnPrefabIndex];
@@ -250,8 +272,7 @@ namespace OWJam3ModProject
             spawnedGO.transform.localPosition = spawnPosition;
 
             //Add it to the dictionary
-            ProceduralTile spawnedTile = spawnedGO.GetComponent<ProceduralTile>();
-            generatedTiles[tileCoordinates] = spawnedTile;
+            generatedTiles[tileCoordinates] = spawnedGO;
         }
         #endregion
 
