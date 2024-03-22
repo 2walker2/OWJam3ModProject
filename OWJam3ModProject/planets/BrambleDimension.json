@@ -7,7 +7,8 @@
 	"removeChildren": [
 		"Sector/Geometry",
 		"Sector/Effects/Effects_DB_Crawlies (2)",
-		"Sector/OuterWarp"
+		"Sector/OuterWarp",
+		"Sector/Atmosphere/AmbientLight_DB_Interior"
 	],
 	"Orbit": {
 		"isStatic": true,
@@ -29,9 +30,18 @@
 		],
 		"remotes": [
 			{
+				"id": "TeamErnesto_Vessel",
+				"stones": [
+					{
+						"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot/ItemDropPosition",
+						"isRelativeToParent": true
+					}
+				]
+			},
+			{
 				"id": "TeamErnesto_Simulation",
 				"platform": {
-					"parentPath": "Sector/SimulationPrefab/FoyerRoot/ProjectionPoolRoot",
+					"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot",
 					"isRelativeToParent": true
 				}
 			}

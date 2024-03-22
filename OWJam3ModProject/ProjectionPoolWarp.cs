@@ -19,11 +19,15 @@ namespace OWJam3ModProject
 
         [Tooltip("The projection pool to make warp you")]
         NomaiRemoteCameraPlatform projectionPool;
+        [Tooltip("Endless cylinder components on children of this gameObject")]
+        EndlessCylinder[] endlessCylinders;
 
         void Start()
         {
             projectionPool = GetComponentInChildren<NomaiRemoteCameraPlatform>();
             GlobalMessenger.AddListener(ExitedProjectionPoolEvent, OnExitedProjectionPool);
+
+            endlessCylinders = GetComponentsInChildren<EndlessCylinder>();
         }
 
         private void OnExitedProjectionPool()
@@ -34,7 +38,10 @@ namespace OWJam3ModProject
                 //Make sure the pool is connected to the one it should warp you to
                 if (projectionPool._slavePlatform._id.ToString() == warpPoolId)
                 {
-                    //Teleport player to simulation
+                    //Disable endless cylinders this frame to make sure player doesn't get warped back
+                    SetEndlessCylinderEnabled(false);
+
+                    //Teleport player
                     PlayerBody playerBody = (PlayerBody)Locator.GetPlayerBody();
                     Transform target = projectionPool._playerHologram;
                     if (playerBody != null)
@@ -49,6 +56,9 @@ namespace OWJam3ModProject
 
                     //Prevent the player from taking items with them
                     ForceDropItem();
+
+                    //Re-enable endless cylinders
+                    NewHorizons.Utility.OWML.Delay.FireOnNextUpdate(() => { SetEndlessCylinderEnabled(true); });
                 }
             }
         }
@@ -61,6 +71,12 @@ namespace OWJam3ModProject
                 itemTool._waitForUnsocketAnimation = false;
                 itemTool.DropItemInstantly(projectionPool._socket._sector, itemTransform);
             }
+        }
+
+        private void SetEndlessCylinderEnabled(bool value)
+        {
+            foreach (EndlessCylinder endlessCylinder in endlessCylinders)
+                endlessCylinder.enabled = value;
         }
     }
 }
