@@ -123,6 +123,11 @@ namespace OWJam3ModProject
             {
                 NewHorizons.Utility.Files.AssetBundleUtilities.ReplaceShaders(prefab);
             }
+
+            foreach (GameObject prefab in uniquePrefabs)
+            {
+                NewHorizons.Utility.Files.AssetBundleUtilities.ReplaceShaders(prefab);
+            }
         }
 
         void GenerateAroundTransforms()
@@ -193,7 +198,6 @@ namespace OWJam3ModProject
                 //Destroy all tiles found to not be in range of any generator
                 foreach (Vector2Int tileCoordinates in tilesToDestroy)
                 {
-                    Debug.Log("Destroying tile at coordinates: " + tileCoordinates);
                     Destroy(generatedTiles[tileCoordinates].gameObject);
                     generatedTiles.Remove(tileCoordinates);
                 }

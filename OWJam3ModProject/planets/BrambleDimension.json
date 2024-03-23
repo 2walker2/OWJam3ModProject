@@ -29,15 +29,6 @@
 		],
 		"remotes": [
 			{
-				"id": "TeamErnesto_Vessel",
-				"stones": [
-					{
-						"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot/ItemDropPosition",
-						"isRelativeToParent": true
-					}
-				]
-			},
-			{
 				"id": "TeamErnesto_Simulation",
 				"platform": {
 					"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot",
