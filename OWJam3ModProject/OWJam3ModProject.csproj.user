@@ -1,9 +1,0 @@
-﻿<Project>
-  <PropertyGroup>
-    <OutputPath>$(AppData)\OuterWildsModManager\OWML\Mods\TeamErnesto.OWJam3ModProject</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Label="UserMacros">
-	<UnityDLLFolder>C:\Users\dwalk\Outer Wilds Modding\OWJam3Root\OWJam3UnityProject\Assets\_OWModJam3Project\</UnityDLLFolder>
-	<OuterWildsModDirectory>C:\Users\dwalk\AppData\Roaming\OuterWildsModManager\OWML\Mods\</OuterWildsModDirectory>
-  </PropertyGroup>
-</Project>
