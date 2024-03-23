@@ -12,17 +12,23 @@ namespace OWJam3ModProject
         [Tooltip("The ID for which no duplicate UniqueGameObjects can exist")]
         [SerializeField] string id;
 
+        [Tooltip("Whether this UniqueGameObject successfully instantiated")]
+        [SerializeField] bool instantiated;
+
         void Awake()
         {
             if (instantiatedIds.Contains(id))
                 Destroy(gameObject);
             else
+            {
                 instantiatedIds.Add(id);
+                instantiated = true;
+            }
         }
 
         void OnDestroy()
         {
-            if (instantiatedIds.Contains(id))
+            if (instantiated && instantiatedIds.Contains(id))
                 instantiatedIds.Remove(id);
         }
     }

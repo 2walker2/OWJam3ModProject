@@ -13,7 +13,7 @@
 		"Sector/Geometry",
 		"Sector/Effects/Effects_DB_Crawlies (2)",
 		"Sector/OuterWarp",
-		"Sector/Atmosphere/AmbientLight_DB_Interior"
+		//"Sector/Atmosphere/AmbientLight_DB_Interior"
 	],
 	"Orbit": {
 		"isStatic": true,
