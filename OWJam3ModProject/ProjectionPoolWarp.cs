@@ -16,6 +16,8 @@ namespace OWJam3ModProject
         [SerializeField] string warpPoolId;
         [Tooltip("Where to place any item the player tries to bring it with them")]
         [SerializeField] Transform itemTransform;
+        [Tooltip("Whether this projection pool is bringing the player inside the simulation")]
+        [SerializeField] bool enteringSimulation;
 
         [Tooltip("The projection pool to make warp you")]
         NomaiRemoteCameraPlatform projectionPool;
@@ -39,7 +41,7 @@ namespace OWJam3ModProject
                 if (projectionPool._slavePlatform._id.ToString() == warpPoolId)
                 {
                     //Disable endless cylinders this frame to make sure player doesn't get warped back
-                    SetEndlessCylinderEnabled(false);
+                    //SetEndlessCylinderEnabled(false);
 
                     //Teleport player
                     PlayerBody playerBody = (PlayerBody)Locator.GetPlayerBody();
@@ -57,8 +59,14 @@ namespace OWJam3ModProject
                     //Prevent the player from taking items with them
                     ForceDropItem();
 
+                    //If entering simulation, make player invincible
+                    if (enteringSimulation)
+                        ProjectionSimulation.instance.EnterSimulation();
+                    else
+                        ProjectionSimulation.instance.ExitSimulation();
+
                     //Re-enable endless cylinders
-                    NewHorizons.Utility.OWML.Delay.FireOnNextUpdate(() => { SetEndlessCylinderEnabled(true); });
+                    //NewHorizons.Utility.OWML.Delay.FireOnNextUpdate(() => { SetEndlessCylinderEnabled(true); });
                 }
             }
         }
