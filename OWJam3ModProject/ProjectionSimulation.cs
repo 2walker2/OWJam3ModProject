@@ -19,7 +19,10 @@ namespace OWJam3ModProject
         [Tooltip("The number of seconds remaining when the player entered the simulation")]
         float secondsRemainingWhenEntering;
 
-        void Start()
+        [Tooltip("The PauseMenuManager in the scene")]
+        PauseMenuManager pauseMenuManager;
+
+        void Awake()
         {
             if (instance == null)
                 instance = this;
@@ -30,13 +33,18 @@ namespace OWJam3ModProject
             }
         }
 
+        void Start()
+        {
+            pauseMenuManager = FindObjectOfType<PauseMenuManager>();
+        }
+
         public void EnterSimulation()
         {
             playerInSimulation = true;
             PlayerState._insideTheEye = true;
 
             playerKnewMeditationWhenEntering = PlayerData.GetPersistentCondition(MEDITATION_CONDITION);
-            PlayerData.SetPersistentCondition(MEDITATION_CONDITION, false);
+            pauseMenuManager._skipToNextLoopButton.SetActive(false);
 
             secondsRemainingWhenEntering = TimeLoop.GetSecondsRemaining();
         }
@@ -46,7 +54,7 @@ namespace OWJam3ModProject
             playerInSimulation = false;
             PlayerState._insideTheEye = false;
 
-            PlayerData.SetPersistentCondition(MEDITATION_CONDITION, playerKnewMeditationWhenEntering);
+            pauseMenuManager._skipToNextLoopButton.SetActive(playerKnewMeditationWhenEntering);
             TimeLoop.SetSecondsRemaining(secondsRemainingWhenEntering);
         }
 
