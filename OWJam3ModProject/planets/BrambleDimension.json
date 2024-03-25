@@ -13,7 +13,7 @@
 		"Sector/Geometry",
 		"Sector/Effects/Effects_DB_Crawlies (2)",
 		"Sector/OuterWarp",
-		//"Sector/Atmosphere/AmbientLight_DB_Interior"
+		"Sector/Atmosphere/AmbientLight_DB_Interior"
 	],
 	"Orbit": {
 		"isStatic": true,
@@ -29,11 +29,12 @@
 		],
 		"remotes": [
 			{
-				"id": "TeamErnesto_Simulation",
+				"id": "Unmarked",
 				"platform": {
 					"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot",
 					"isRelativeToParent": true
-				}
+				},
+				"decalPath": "planets/assets/Blank.png"
 			}
 		]
 	},
@@ -43,9 +44,9 @@
 				"r": 0,
 				"g": 0,
 				"b": 0,
-				"a": 0
+				"a": 1
 			},
-			"fogDensity": 0,
+			"fogDensity": 30,
 			"vinePrefab": "none",
 			"radius": 1000,
 			"linksTo": "TeamErnesto_TestNode"

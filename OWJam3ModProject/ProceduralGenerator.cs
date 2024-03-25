@@ -274,6 +274,7 @@ namespace OWJam3ModProject
             //Spawn the tile
             GameObject spawnedGO = Instantiate(spawnPrefab, generationRoot);
             spawnedGO.transform.localPosition = spawnPosition;
+            spawnedGO.transform.Rotate(transform.up, 90 * UnityEngine.Random.Range(0, 4)); //Randomize rotation in increments of 90 degrees
 
             //Add it to the dictionary
             generatedTiles[tileCoordinates] = spawnedGO;

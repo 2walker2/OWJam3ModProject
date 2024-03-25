@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
-	"name": "Test Planet",
+	"name": "Forlorn Project",
 	"starSystem": "Jam3",
 	"Base": {
 		"gravityFallOff": "linear",
@@ -9,17 +9,33 @@
 		"surfaceSize":  100
 	},
 	"Orbit": {
-		"isStatic": true
+		//"primaryBody": "Jam 3 Sun",
+		"isStatic": true //Remove when submitting
 	},
 	"ReferenceFrame": {
 		"hideInMap": false,
 		"targetColliderRadius": 500
 	},
+	"AmbientLights": [
+		{
+			"intensity": 2
+		}
+	],
+	"Atmosphere": {
+		"atmosphereTint": {
+			"r": 120,
+			"g": 60,
+			"b": 74
+		},
+		"hasRain": true,
+		"useAtmosphereShader": true,
+		"size": 200
+	},
 	"Props": {
 		"details": [
 			{
 				"assetBundle": "assets/owmodjam3projectbundle",
-				"path": "Assets/_OWModJam3Project/_Bundle/TestPlanet.prefab",
+				"path": "Assets/_OWModJam3Project/_Bundle/Planet.prefab",
 				"rename": "PlanetPrefab",
 				"keepLoaded": true
 			}
@@ -41,30 +57,50 @@
 		],
 		"remotes": [
 			{
-				"id": "TeamErnesto_Simulation",
+				"id": "Unmarked",
 				"stones": [
 					{
 						"parentPath": "Sector/PlanetPrefab/ProjectionPoolRoot/ItemDropPosition",
 						"isRelativeToParent": true
 					}
-				]
+				],
+				"decalPath": "planets/assets/Blank.png"
 			},
 			{
 				"id": "TeamErnesto_Vessel",
 				"platform": {
 					"parentPath": "Sector/PlanetPrefab/ProjectionPoolRoot",
 					"isRelativeToParent": true
-				}
+				},
+				"decalPath": "planets/assets/Blank.png"
+			}
+		],
+		"translatorText": [
+			{
+				"parentPath": "Sector/PlanetPrefab/PlanetRuins/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/PlaceholderText.xml"
 			}
 		]
+	},
+	"Water": {
+		"size": 54,
+		"tint": {
+			"r": 135,
+			"g": 164,
+			"b": 173
+		}
 	},
 	"Bramble": {
 		"nodes": [
 			{
-				"position": { "y": -120 },
-				"scale": 0.1,
+				"scale": 0.00001,
 				"linksTo": "Test Dimension"
 			}
 		]
+	},
+	"extras": {
+		"farFromSun": true
 	}
 }
