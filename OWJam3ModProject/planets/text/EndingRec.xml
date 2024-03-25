@@ -1,1 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
+	<TextBlock>
+		<ID>1</ID>
+		<Text>CALAD: Before we exit this place, I believe we should discuss our perspectives.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>2</ID>
+		<ParentID>1</ParentID>
+		<Text>MELINA: In regards to what, Calad?</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>3</ID>
+		<ParentID>2</ParentID>
+		<Text>CALAD: This place. Exploring it, we’ve all found it to be inadequate. It lacks natural qualities, it lacks will in its construction, and it lacks mysteries.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>4</ID>
+		<ParentID>3</ParentID>
+		<Text>CALAD: We created this projection in order to have a safeguard once even our last stars fade out, but, after exploring it ourselves, I wonder if it might be detrimental.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>5</ID>
+		<ParentID>4</ParentID>
+		<Text>PRIMM: Do you suggest we simply accept our fate?</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>6</ID>
+		<ParentID>5</ParentID>
+		<Text>CALAD: I suggest we, at the very least, try to stay true to our principles. We are nomads to satiate our curiosity, to meet phenomena we don’t understand and do our best to grasp it. It’s unlike our species to endure for no reason than fear of the end.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>7</ID>
+		<ParentID>6</ParentID>
+		<Text>MELINA: The alternative to our projection is daunting. Probability is not friendly to us, now.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>8</ID>
+		<ParentID>7</ParentID>
+		<Text>PRIMM: We simply must seek a different solution; one that preserves our spirit.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>9</ID>
+		<ParentID>8</ParentID>
+		<Text>PRIMM: Fear of failure is a poor reason not to try.</Text>
+	</TextBlock>
+</NomaiObject>

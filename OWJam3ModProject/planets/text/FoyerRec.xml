@@ -1,1 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
+	<TextBlock>
+		<ID>1</ID>
+		<Text>PRIMM: Initial log: It works! Calad is truly a talented engineer; I’m most grateful of being his apprentice.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>2</ID>
+		<ParentID>1</ParentID>
+		<Text>CALAD: It wasn’t just me, Primm. Melina developed the interface side of things, don’t let her talent go without credit.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>3</ID>
+		<ParentID>2</ParentID>
+		<Text>MELINA: Thank you, Calad. Were you not committed to someone, I would think you’re flirting with me.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>4</ID>
+		<ParentID>3</ParentID>
+		<Text>CALAD: If your brother heard you, Melina…</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>5</ID>
+		<ParentID>4</ParentID>
+		<Text>MELINA: He’d thank me for making you two meet, yes. Now, to the matter at our prehensile appendage:</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>6</ID>
+		<ParentID>5</ParentID>
+		<Text>MELINA: The projection is functioning wonderfully: Our minds can interact with each other in a simulated physical environment, and we can move freely even while stepping beyond the projection pool.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>7</ID>
+		<ParentID>6</ParentID>
+		<Text>PRIMM: …Calad, Melina, where is the projection stone to return?</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>8</ID>
+		<ParentID>7</ParentID>
+		<Text>MELINA: Has it disappeared? This is troubling…</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>9</ID>
+		<ParentID>8</ParentID>
+		<Text>CALAD: It is, but we shouldn’t panic: There should be a safeguard to return us, but we’ll need to explore the area.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>10</ID>
+		<ParentID>9</ParentID>
+		<Text>MELINA: If so, let’s start moving.</Text>
+	</TextBlock>
+</NomaiObject>

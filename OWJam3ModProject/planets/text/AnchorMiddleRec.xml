@@ -1,1 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
+	<TextBlock>
+		<ID>1</ID>
+		<Text>PRIMM: I must wonder what would happen if another species interacted with this space.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>2</ID>
+		<ParentID>1</ParentID>
+		<Text>MELINA: The projection works by interfacing with our knowledge and building from it. Hypothesis: Should a different species enter here, its architecture would closely match their experiences.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>3</ID>
+		<ParentID>2</ParentID>
+		<Text>CALAD: Perhaps, if this structure is left alone, someone else will find it and prove that hypothesis.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>4</ID>
+		<ParentID>3</ParentID>
+		<Text>MELINA: As much as I'd enjoy to see it, I doubt we'll be present for such an event.</Text>
+	</TextBlock>
+</NomaiObject>

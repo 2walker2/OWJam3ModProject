@@ -1,1 +1,41 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
+	<TextBlock>
+		<ID>1</ID>
+		<Text>CALAD: Walking through this place makes me miss the open night sky. Remind me to add some exterior area on future iterations, please.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>2</ID>
+		<ParentID>1</ParentID>
+		<Text>PRIMM: I share the feeling, Calad. Perhaps a garden could be made, or an observatory?</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>3</ID>
+		<ParentID>2</ParentID>
+		<Text>MELINA: I’m unsure that’d be enough, Primm. Hypothesis: Making a facsimile of the sky will not suffice; only the true version will satiate our love for it.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>4</ID>
+		<ParentID>3</ParentID>
+		<Text>CALAD: That’s not a comforting hypothesis, Melina. Why do you believe that?</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>5</ID>
+		<ParentID>4</ParentID>
+		<Text>MELINA: I lack concrete evidence, but I cannot think of a situation where, knowing I’m looking at code and algorithms, I’d be satisfied.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>6</ID>
+		<ParentID>5</ParentID>
+		<Text>CALAD: Perhaps… Perhaps I feel the same.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>7</ID>
+		<ParentID>6</ParentID>
+		<Text>CALAD: …</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>8</ID>
+		<ParentID>7</ParentID>
+		<Text>MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We can go to the center afterwards.We’ll head for the center afterwards.</Text>
+	</TextBlock>
+</NomaiObject>
