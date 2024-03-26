@@ -10,9 +10,9 @@
 	},
 	"Orbit": {
 		"primaryBody": "Jam 3 Sun",
-		/*"isTidallyLocked": true,
-		"alignmentAxis": {"y": 1}*/
-		"isStatic": true //Remove when submitting
+		"isTidallyLocked": true,
+		"alignmentAxis": {"y": 1}
+		//"isStatic": true //Remove when submitting
 	},
 	"ReferenceFrame": {
 		"hideInMap": false,
@@ -40,26 +40,33 @@
 				"path": "Assets/_OWModJam3Project/_Bundle/Planet.prefab",
 				"rename": "PlanetPrefab",
 				"keepLoaded": true
+			},
+			{
+				"parentPath": "Sector/PlanetPrefab/ErnestoRoot",
+				"rename": "Ernesto",
+				"isRelativeToParent": true,
+				"path": "TimberHearth_Body/Sector_TH/Sector_Village/Sector_Observatory/Interactables_Observatory/AnglerFishExhibit/AnglerFishTankPivot/Beast_Anglerfish",
+				"scale": 0.01
 			}
 		],
 		"remotes": [
 			{
-				"id": "Unmarked",
+				"id": "???",
 				"stones": [
 					{
 						"parentPath": "Sector/PlanetPrefab/ProjectionPoolRoot/ItemDropPosition",
 						"isRelativeToParent": true
 					}
 				],
-				"decalPath": "planets/assets/Blank.png"
+				"decalPath": "planets/assets/SimulationStone.png"
 			},
 			{
-				"id": "TeamErnesto_Vessel",
+				"id": "Forlorn Project",
 				"platform": {
 					"parentPath": "Sector/PlanetPrefab/ProjectionPoolRoot",
 					"isRelativeToParent": true
 				},
-				"decalPath": "planets/assets/Blank.png"
+				"decalPath": "planets/assets/PlanetStone.png"
 			}
 		],
 		"translatorText": [

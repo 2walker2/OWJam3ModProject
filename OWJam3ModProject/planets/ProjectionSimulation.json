@@ -4,11 +4,6 @@
 	"starSystem": "Jam3",
 	"Base": {
 	},
-	"Spawn": {
-		"playerSpawn": {
-			"position": {"y":  1}
-		}
-	},
 	"removeChildren": [
 		"Sector/Geometry",
 		"Sector/Effects/Effects_DB_Crawlies (2)",
@@ -29,12 +24,23 @@
 		],
 		"remotes": [
 			{
-				"id": "Unmarked",
+				"id": "Forlorn Project",
+				"stones": [
+					{
+						"parentPath": "Sector/SimulationPrefab/OwlkRoot/GenerationRoot/EndingTile/ProjectionStoneRoot",
+						//"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot/ItemDropPosition",
+						"isRelativeToParent": true
+					}
+				],
+				"decalPath": "planets/assets/PlanetStone.png"
+			},
+			{
+				"id": "???",
 				"platform": {
 					"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/ProjectionPoolRoot",
 					"isRelativeToParent": true
 				},
-				"decalPath": "planets/assets/Blank.png"
+				"decalPath": "planets/assets/SimulationStone.png"
 			}
 		],
 		"signals": [
@@ -92,10 +98,34 @@
 				"xmlFile": "planets/text/AnchorThreeRec.xml"
 			},
 			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/TileExit/RecorderTopRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/AnchorMiddleRecTop.xml"
+			},
+			{
 				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/TileExit/RecorderRoot",
 				"isRelativeToParent": true,
 				"type": "recorder",
 				"xmlFile": "planets/text/AnchorMiddleRec.xml"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/OwlkRoot/GenerationRoot/EndingTile/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/EndingRec.xml"
+			}
+		]
+	},
+	"Volumes": {
+		"creditsVolume": [
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/EndingTriggerRoot",
+				"isRelativeToParent": true,
+				"radius": 100,
+				"creditsType": "fast",
+				"gameOverText": "You Escaped the Projection",
+				"deathType": "meditation"
 			}
 		]
 	},

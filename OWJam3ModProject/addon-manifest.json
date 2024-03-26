@@ -5,5 +5,7 @@
         "GayCoffee#Writer",
         "Greenpixel#Composer",
         "digitalvalues (freesound.org)#Signal SFX"
-    ]
+    ],
+    "popupMessage": "Thanks for downloading Reflections! This mod was made for the 2024 New Horizons Single Planet Mod Jam.\n\nUse of the Suit Log mod is highly recommended.",
+    "subtitlePath": "planets/assets/Subtitle.png"
 }

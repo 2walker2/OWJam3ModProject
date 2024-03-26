@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "OWJam3ModProject.dll",
-  "author": "TeamErnesto",
-  "name": "OWJam3ModProject",
+  "author": "Walker, GayCoffee, Greenpixel",
+  "name": "Reflections",
   "uniqueName": "TeamErnesto.OWJam3ModProject",
   "version": "0.1.0",
   "owmlVersion": "2.9.8",

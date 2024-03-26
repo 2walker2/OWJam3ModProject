@@ -57,6 +57,7 @@ namespace OWJam3ModProject
         public void ExitSimulation()
         {
             playerInSimulation = false;
+            playerEnteringSimulation = false;
             playerResources._invincible = false;
 
             pauseMenuManager._skipToNextLoopButton.SetActive(playerKnewMeditationWhenEntering);

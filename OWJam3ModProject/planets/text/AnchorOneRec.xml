@@ -11,12 +11,12 @@
 	<TextBlock>
 		<ID>3</ID>
 		<ParentID>2</ParentID>
-		<Text>CALAD: Yes, it’s not helpful by itself, but the centerpoint between it and the other ones is the most stable: Another projection stone should appear there.</Text>
+		<Text>CALAD: Yes, it’s not helpful by itself, but it works with the other two to stabilize the area between them. Another projection stone should <![CDATA[<Color=orange>]]>load<![CDATA[</Color>]]> there.</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>4</ID>
 		<ParentID>3</ParentID>
-		<Text>MELINA: Appearing out of thin air? This projection is more fantastical than I thought.</Text>
+		<Text>MELINA: <![CDATA[<Color=orange>]]>Loading<![CDATA[</Color>]]> out of thin air? This projection is more fantastical than I thought.</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>5</ID>
@@ -45,7 +45,7 @@
 	</TextBlock>
 	<ShipLogConditions>
 		<RevealFact>
-			<FactID>TeamErnesto_2</FactID>
+			<FactID>TeamErnesto_4</FactID>
 			<Condition>7</Condition>
 		</RevealFact>
 		<RevealFact>

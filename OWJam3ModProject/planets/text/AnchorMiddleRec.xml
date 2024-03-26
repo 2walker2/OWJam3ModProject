@@ -18,6 +18,16 @@
 		<ParentID>3</ParentID>
 		<Text>MELINA: As much as I'd enjoy to see it, I doubt we'll be present for such an event.</Text>
 	</TextBlock>
+	<TextBlock>
+		<ID>5</ID>
+		<ParentID>4</ParentID>
+		<Text>CALAD: Regardless, now that we've reached this reflection, we're most likely to find a projection stone in the position on this side corresponding to where we first entered the projection.</Text>
+	</TextBlock>
+	<TextBlock>
+		<ID>6</ID>
+		<ParentID>5</ParentID>
+		<Text>PRIMM: I am uncertain how we might locate that position without some sort of marker to lead the way.</Text>
+	</TextBlock>
 	<ShipLogConditions>
 		<RevealFact>
 			<FactID>TeamErnesto_7</FactID>
@@ -25,7 +35,11 @@
 		</RevealFact>
 		<RevealFact>
 			<FactID>TeamErnesto_8</FactID>
-			<Condition>2</Condition>
+			<Condition>1</Condition>
+		</RevealFact>
+		<RevealFact>
+			<FactID>TeamErnesto_8.1</FactID>
+			<Condition>6</Condition>
 		</RevealFact>
 	</ShipLogConditions>
 </NomaiObject>

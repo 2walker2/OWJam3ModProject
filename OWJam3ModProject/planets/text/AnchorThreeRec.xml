@@ -1,7 +1,7 @@
 ﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
 	<TextBlock>
 		<ID>1</ID>
-		<Text>MELINA: Very well, this is the last anchor. We should move to the center between them, now.</Text>
+		<Text>MELINA: Very well, this is the last anchor. We should attempt to triangulate them now.</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>2</ID>

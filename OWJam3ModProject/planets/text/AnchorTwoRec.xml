@@ -1,7 +1,7 @@
 ﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
 	<TextBlock>
 		<ID>1</ID>
-		<Text>CALAD: Walking through this place makes me miss the open night sky. Remind me to add some exterior area on future iterations, please.</Text>
+		<Text>CALAD: Walking through this place makes me miss the open night sky. Remind me to add some exterior areas on future iterations, please.</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>2</ID>
@@ -36,7 +36,7 @@
 	<TextBlock>
 		<ID>8</ID>
 		<ParentID>7</ParentID>
-		<Text>MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We’ll head for the center afterwards.</Text>
+		<Text>MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We’ll head for the incenter afterwards.</Text>
 	</TextBlock>
 	<ShipLogConditions>
 		<RevealFact>

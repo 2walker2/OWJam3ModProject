@@ -5,6 +5,7 @@ using NewHorizons;
 using System;
 using System.Collections;
 using System.Net.Sockets;
+using Newtonsoft.Json.Linq;
 
 namespace OWJam3ModProject
 {
@@ -22,27 +23,23 @@ namespace OWJam3ModProject
 
         [Tooltip("The projection pool to make warp you")]
         NomaiRemoteCameraPlatform projectionPool;
-        [Tooltip("Endless cylinder components on children of this gameObject")]
-        EndlessCylinder[] endlessCylinders;
 
         void Start()
         {
             projectionPool = GetComponentInChildren<NomaiRemoteCameraPlatform>();
             GlobalMessenger.AddListener(ExitedProjectionPoolEvent, OnExitedProjectionPool);
             GlobalMessenger.AddListener(EnteredProjectionPoolEvent, OnEnteredProjectionPool);
-
-            endlessCylinders = GetComponentsInChildren<EndlessCylinder>();
         }
 
         private void OnEnteredProjectionPool()
         {
-            Main.Instance.ModHelper.Console.WriteLine("ENTERING PROJECTION POOL");
+            //Main.Instance.ModHelper.Console.WriteLine("ENTERING PROJECTION POOL");
             if (projectionPool.GetPlatformState() == NomaiRemoteCameraPlatform.State.Connecting_FadeIn)
             {
-                Main.Instance.ModHelper.Console.WriteLine("ENTERING THIS PROJECTION POOL");
+                //Main.Instance.ModHelper.Console.WriteLine("ENTERING THIS PROJECTION POOL");
                 if (projectionPool._slavePlatform._id.ToString() == warpPoolId)
                 {
-                    Main.Instance.ModHelper.Console.WriteLine("ENTERING PROJECTION POOL WITH WARP");
+                    //Main.Instance.ModHelper.Console.WriteLine("ENTERING PROJECTION POOL WITH WARP");
                     ProjectionSimulation.instance.StartEnteringSimulation();
                 }
             }
@@ -56,8 +53,6 @@ namespace OWJam3ModProject
                 //Make sure the pool is connected to the one it should warp you to
                 if (projectionPool._slavePlatform._id.ToString() == warpPoolId)
                 {
-                    //Disable endless cylinders this frame to make sure player doesn't get warped back
-                    //SetEndlessCylinderEnabled(false);
 
                     //Teleport player
                     PlayerBody playerBody = (PlayerBody)Locator.GetPlayerBody();
@@ -81,8 +76,8 @@ namespace OWJam3ModProject
                     else
                         ProjectionSimulation.instance.ExitSimulation();
 
-                    //Re-enable endless cylinders
-                    //NewHorizons.Utility.OWML.Delay.FireOnNextUpdate(() => { SetEndlessCylinderEnabled(true); });
+                    //Force recall probe
+                    Locator.GetProbe().ExternalRetrieve();
                 }
             }
         }
@@ -95,12 +90,6 @@ namespace OWJam3ModProject
                 itemTool._waitForUnsocketAnimation = false;
                 itemTool.DropItemInstantly(projectionPool._socket._sector, itemTransform);
             }
-        }
-
-        private void SetEndlessCylinderEnabled(bool value)
-        {
-            foreach (EndlessCylinder endlessCylinder in endlessCylinders)
-                endlessCylinder.enabled = value;
         }
     }
 }
