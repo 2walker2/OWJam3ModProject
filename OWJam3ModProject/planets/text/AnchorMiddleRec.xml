@@ -18,4 +18,14 @@
 		<ParentID>3</ParentID>
 		<Text>MELINA: As much as I'd enjoy to see it, I doubt we'll be present for such an event.</Text>
 	</TextBlock>
+	<ShipLogConditions>
+		<RevealFact>
+			<FactID>TeamErnesto_7</FactID>
+			<Condition>2</Condition>
+		</RevealFact>
+		<RevealFact>
+			<FactID>TeamErnesto_8</FactID>
+			<Condition>2</Condition>
+		</RevealFact>
+	</ShipLogConditions>
 </NomaiObject>

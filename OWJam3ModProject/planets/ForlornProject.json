@@ -9,7 +9,9 @@
 		"surfaceSize":  100
 	},
 	"Orbit": {
-		//"primaryBody": "Jam 3 Sun",
+		"primaryBody": "Jam 3 Sun",
+		/*"isTidallyLocked": true,
+		"alignmentAxis": {"y": 1}*/
 		"isStatic": true //Remove when submitting
 	},
 	"ReferenceFrame": {
@@ -65,7 +67,7 @@
 				"parentPath": "Sector/PlanetPrefab/PlanetRuins/RecorderRoot",
 				"isRelativeToParent": true,
 				"type": "recorder",
-				"xmlFile": "planets/text/PlaceholderText.xml"
+				"xmlFile": "planets/text/OutsideRec.xml"
 			}
 		]
 	},
@@ -85,6 +87,10 @@
 				"preventRecursionCrash": true
 			}
 		]
+	},
+	"ShipLog": {
+		"xmlFile": "planets/ship_log/BigLog.xml",
+		"spriteFolder": "planets/ship_log/images"
 	},
 	"extras": {
 		"farFromSun": true

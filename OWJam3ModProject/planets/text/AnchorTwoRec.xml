@@ -36,6 +36,12 @@
 	<TextBlock>
 		<ID>8</ID>
 		<ParentID>7</ParentID>
-		<Text>MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We can go to the center afterwards.We’ll head for the center afterwards.</Text>
+		<Text>MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We’ll head for the center afterwards.</Text>
 	</TextBlock>
+	<ShipLogConditions>
+		<RevealFact>
+			<FactID>TeamErnesto_5</FactID>
+			<Condition>5</Condition>
+		</RevealFact>
+	</ShipLogConditions>
 </NomaiObject>

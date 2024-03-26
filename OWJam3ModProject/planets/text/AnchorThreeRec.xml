@@ -38,4 +38,10 @@
 		<ParentID>7</ParentID>
 		<Text>CALAD: I’m unsure, Primm. Regardless, let us exit this place; we’ll have enough time to think on the way.</Text>
 	</TextBlock>
+	<ShipLogConditions>
+		<RevealFact>
+			<FactID>TeamErnesto_6</FactID>
+			<Condition>4</Condition>
+		</RevealFact>
+	</ShipLogConditions>
 </NomaiObject>

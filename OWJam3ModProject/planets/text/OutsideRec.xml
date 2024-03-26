@@ -1,7 +1,7 @@
 ﻿<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
 	<TextBlock>
 		<ID>1</ID>
-		<Text>MELINA: Welcome to the Simulation Foyer! This is a gateway to the outside (our Vessel) if anyone needs to temporarily exit for any reason.</Text>
+		<Text>CALAD: Melina, is everything ready?</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>2</ID>
@@ -38,7 +38,4 @@
 		<ParentID>7</ParentID>
 		<Text>MELINA: A joke that doesn’t poke at me? You truly might be unwell, friend! Regardless, Primm should be arriving soon. Let’s ready everything.</Text>
 	</TextBlock>
-	<RevealFacts>
-		<FactID>2</FactID>
-	</RevealFacts>
 </NomaiObject>

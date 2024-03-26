@@ -12,8 +12,8 @@
 	"removeChildren": [
 		"Sector/Geometry",
 		"Sector/Effects/Effects_DB_Crawlies (2)",
-		"Sector/OuterWarp"
-		//"Sector/Atmosphere/AmbientLight_DB_Interior"
+		"Sector/OuterWarp",
+		"Sector/Atmosphere/AmbientLight_DB_Interior"
 	],
 	"Orbit": {
 		"isStatic": true,
@@ -61,6 +61,38 @@
 				"identificationRadius": 8,
 				"frequency": "Projection Anchor",
 				"name": "Anchor 3"
+			}
+		],
+		"translatorText": [
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SimulationFoyer/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/FoyerRec.xml"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal1Root/TileAnchor/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/AnchorOneRec.xml"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal2Root/TileAnchor/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/AnchorTwoRec.xml"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal3Root/TileAnchor/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/AnchorThreeRec.xml"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/TileExit/RecorderRoot",
+				"isRelativeToParent": true,
+				"type": "recorder",
+				"xmlFile": "planets/text/AnchorMiddleRec.xml"
 			}
 		]
 	},

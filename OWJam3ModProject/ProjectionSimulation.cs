@@ -12,6 +12,8 @@ namespace OWJam3ModProject
 
         public static ProjectionSimulation instance;
 
+        [Tooltip("Whether the player has entered the projection pool for the simulation")]
+        bool playerEnteringSimulation = false;
         [Tooltip("Whether the player is currently in the simulation")]
         bool playerInSimulation = false;
         [Tooltip("Whether the player knew how to meditate when entering the simulation")]
@@ -67,6 +69,16 @@ namespace OWJam3ModProject
             {
                 TimeLoop.SetSecondsRemaining(secondsRemainingWhenEntering);
             }
+        }
+
+        public void StartEnteringSimulation()
+        {
+            playerEnteringSimulation = true;
+        }
+
+        public bool IsPlayerEnteringSimulation()
+        {
+            return playerEnteringSimulation;
         }
     }
 }

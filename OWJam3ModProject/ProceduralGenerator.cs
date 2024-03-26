@@ -116,7 +116,7 @@ namespace OWJam3ModProject
 
         void Update()
         {
-            if (generate)
+            if (generate && ProjectionSimulation.instance.IsPlayerEnteringSimulation())
                 GenerateAroundTransforms();
         }
         #endregion

@@ -1,57 +1,56 @@
 ﻿<AstroObjectEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/shiplog_schema.xsd">
-	<ID>EXAMPLE_PLANET</ID>
+	<ID>FORLORN_PROJECT</ID>
 	<!-- The ID of the planet this xml file is for -->
 
 	<Entry>
-		<ID>1</ID>
+		<ID>TeamErnesto_1</ID>
 		<Name>Procedural Projection</Name>
-		<Curiosity>1</Curiosity>
+		<Curiosity>TeamErnesto_1</Curiosity>
 		<IsCuriosity/>
-		<IgnoreMoreToExplore/>
 
 		<ExploreFact>
-			<ID>2</ID>
+			<ID>TeamErnesto_2</ID>
 			<Text>The Nomai built a simulation accessible through a projection pool.</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>3</ID>
+			<ID>TeamErnesto_3</ID>
 			<Text>During the first practical test, three Nomai became trapped inside the projection. To find the exit, they went to the middlepoint between the three Anchors.</Text>
 		</ExploreFact>
 		
 		<ExploreFact>
-			<ID>4</ID>
+			<ID>TeamErnesto_4</ID>
 			<Text>A Nomai named Melina was bothered by the predictable nature of the projection, noting that knowing everything of an enviroment contradicts the Nomai's curiosity.</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>5</ID>
+			<ID>TeamErnesto_5</ID>
 			<Text>A Nomai named Calad was bothered by the lack of nature within the projection. Another Nomai noted that knowing the nature was simulated would defeat the purpose of adding it.</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>6</ID>
+			<ID>TeamErnesto_6</ID>
 			<Text>A Nomai named Primm was bothered by the artificiality of the projection, noting it seemed like "an attempt by someone to recreate their structures without understanding why they were built."</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>7</ID>
+			<ID>TeamErnesto_7</ID>
 			<Text>The projection is procedurally generated from the knowledge of whoever is inside it.</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>8</ID>
-			<Text>I found a Stranger-styled area above the Nomai structures.</Text>
+			<ID>TeamErnesto_8</ID>
+			<Text>I found a Stranger-styled area below the Nomai structures.</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>9</ID>
+			<ID>TeamErnesto_9</ID>
 			<Text>I found a projection stone that allows me to return.</Text>
 		</ExploreFact>
 
 		<ExploreFact>
-			<ID>10</ID>
+			<ID>TeamErnesto_10</ID>
 			<Text>The Nomai concluded they wouldn't finish this project, as they considered it to go against Nomai philosophy.</Text>
 		</ExploreFact>
 	</Entry>

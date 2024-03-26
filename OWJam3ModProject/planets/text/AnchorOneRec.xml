@@ -43,4 +43,14 @@
 		<ParentID>8</ParentID>
 		<Text>CALAD: Let’s visit the other anchors, since we’re still monitoring the functionality of the projection.</Text>
 	</TextBlock>
+	<ShipLogConditions>
+		<RevealFact>
+			<FactID>TeamErnesto_2</FactID>
+			<Condition>7</Condition>
+		</RevealFact>
+		<RevealFact>
+			<FactID>TeamErnesto_3</FactID>
+			<Condition>3</Condition>
+		</RevealFact>
+	</ShipLogConditions>
 </NomaiObject>

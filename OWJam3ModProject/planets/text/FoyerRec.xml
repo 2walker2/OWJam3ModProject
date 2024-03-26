@@ -21,7 +21,7 @@
 	<TextBlock>
 		<ID>5</ID>
 		<ParentID>4</ParentID>
-		<Text>MELINA: He’d thank me for making you two meet, yes. Now, to the matter at our prehensile appendage:</Text>
+		<Text>MELINA: He’d thank me for making you two meet, yes. Now, to the matter at our prehensile appendage.</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>6</ID>
@@ -41,11 +41,17 @@
 	<TextBlock>
 		<ID>9</ID>
 		<ParentID>8</ParentID>
-		<Text>CALAD: It is, but we shouldn’t panic: There should be a safeguard to return us, but we’ll need to explore the area.</Text>
+		<Text>CALAD: It is, but we shouldn’t panic: There should be a safeguard to return us, but we’ll need to find it.</Text>
 	</TextBlock>
 	<TextBlock>
 		<ID>10</ID>
 		<ParentID>9</ParentID>
 		<Text>MELINA: If so, let’s start moving.</Text>
 	</TextBlock>
+	<ShipLogConditions>
+		<RevealFact>
+			<FactID>TeamErnesto_2</FactID>
+			<Condition>6</Condition>
+		</RevealFact>
+	</ShipLogConditions>
 </NomaiObject>

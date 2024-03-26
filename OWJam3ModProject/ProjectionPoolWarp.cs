@@ -11,6 +11,7 @@ namespace OWJam3ModProject
     internal class ProjectionPoolWarp : MonoBehaviour
     {
         const string ExitedProjectionPoolEvent = "ExitNomaiRemoteCamera";
+        const string EnteredProjectionPoolEvent = "EnterNomaiRemoteCamera";
 
         [Tooltip("The ID of the projection pool you warp to")]
         [SerializeField] string warpPoolId;
@@ -28,8 +29,23 @@ namespace OWJam3ModProject
         {
             projectionPool = GetComponentInChildren<NomaiRemoteCameraPlatform>();
             GlobalMessenger.AddListener(ExitedProjectionPoolEvent, OnExitedProjectionPool);
+            GlobalMessenger.AddListener(EnteredProjectionPoolEvent, OnEnteredProjectionPool);
 
             endlessCylinders = GetComponentsInChildren<EndlessCylinder>();
+        }
+
+        private void OnEnteredProjectionPool()
+        {
+            Main.Instance.ModHelper.Console.WriteLine("ENTERING PROJECTION POOL");
+            if (projectionPool.GetPlatformState() == NomaiRemoteCameraPlatform.State.Connecting_FadeIn)
+            {
+                Main.Instance.ModHelper.Console.WriteLine("ENTERING THIS PROJECTION POOL");
+                if (projectionPool._slavePlatform._id.ToString() == warpPoolId)
+                {
+                    Main.Instance.ModHelper.Console.WriteLine("ENTERING PROJECTION POOL WITH WARP");
+                    ProjectionSimulation.instance.StartEnteringSimulation();
+                }
+            }
         }
 
         private void OnExitedProjectionPool()

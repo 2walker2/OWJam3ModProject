@@ -43,4 +43,14 @@
 		<ParentID>8</ParentID>
 		<Text>PRIMM: Fear of failure is a poor reason not to try.</Text>
 	</TextBlock>
+	<ShipLogConditions>
+		<RevealFact>
+			<FactID>TeamErnesto_10</FactID>
+			<Condition>8</Condition>
+		</RevealFact>
+		<RevealFact>
+			<FactID>TeamErnesto_9</FactID>
+			<Condition>1</Condition>
+		</RevealFact>
+	</ShipLogConditions>
 </NomaiObject>

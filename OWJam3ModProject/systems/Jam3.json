@@ -1,0 +1,20 @@
+﻿{
+    "$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/star_system_schema.json",
+    "curiosities": [
+        {
+            "id": "TeamErnesto_1",
+            "color": {
+                "r": 120,
+                "g": 150,
+                "b": 250,
+                "a": 255
+            },
+            "highlightColor": {
+                "r": 150,
+                "g": 180,
+                "b": 250,
+                "a": 255
+            }
+        }
+    ]
+}
