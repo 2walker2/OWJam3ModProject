@@ -1,3 +1,9 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json"
+    "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json",
+    "credits": [
+        "Walker#Programmer",
+        "GayCoffee#Writer",
+        "Greenpixel#Composer",
+        "digitalvalues (freesound.org)#Signal SFX"
+    ]
 }

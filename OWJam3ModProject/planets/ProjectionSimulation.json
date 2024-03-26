@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
-	"name": "Test Dimension",
+	"name": "Projection Simulation",
 	"starSystem": "Jam3",
 	"Base": {
 	},
@@ -44,7 +44,8 @@
 				"detectionRadius": 1500,
 				"identificationRadius": 8,
 				"frequency": "Projection Anchor",
-				"name": "Anchor 1"
+				"name": "Anchor 1",
+				"audio": "planets/assets/Signal.wav"
 			},
 			{
 				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal2Root/TileAnchor/SignalPosition",
@@ -52,7 +53,8 @@
 				"detectionRadius": 1500,
 				"identificationRadius": 8,
 				"frequency": "Projection Anchor",
-				"name": "Anchor 2"
+				"name": "Anchor 2",
+				"audio": "planets/assets/Signal.wav"
 			},
 			{
 				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal3Root/TileAnchor/SignalPosition",
@@ -60,7 +62,8 @@
 				"detectionRadius": 1500,
 				"identificationRadius": 8,
 				"frequency": "Projection Anchor",
-				"name": "Anchor 3"
+				"name": "Anchor 3",
+				"audio": "planets/assets/Signal.wav"
 			}
 		],
 		"translatorText": [
