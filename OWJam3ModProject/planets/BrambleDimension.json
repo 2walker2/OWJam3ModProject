@@ -12,8 +12,8 @@
 	"removeChildren": [
 		"Sector/Geometry",
 		"Sector/Effects/Effects_DB_Crawlies (2)",
-		"Sector/OuterWarp",
-		"Sector/Atmosphere/AmbientLight_DB_Interior"
+		"Sector/OuterWarp"
+		//"Sector/Atmosphere/AmbientLight_DB_Interior"
 	],
 	"Orbit": {
 		"isStatic": true,
@@ -36,6 +36,32 @@
 				},
 				"decalPath": "planets/assets/Blank.png"
 			}
+		],
+		"signals": [
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal1Root/TileAnchor/SignalPosition",
+				"isRelativeToParent": true,
+				"detectionRadius": 1500,
+				"identificationRadius": 8,
+				"frequency": "Projection Anchor",
+				"name": "Anchor 1"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal2Root/TileAnchor/SignalPosition",
+				"isRelativeToParent": true,
+				"detectionRadius": 1500,
+				"identificationRadius": 8,
+				"frequency": "Projection Anchor",
+				"name": "Anchor 2"
+			},
+			{
+				"parentPath": "Sector/SimulationPrefab/NomaiInteriorRoot/SignalCenter/Signal3Root/TileAnchor/SignalPosition",
+				"isRelativeToParent": true,
+				"detectionRadius": 1500,
+				"identificationRadius": 8,
+				"frequency": "Projection Anchor",
+				"name": "Anchor 3"
+			}
 		]
 	},
 	"Bramble": {
@@ -46,9 +72,9 @@
 				"b": 0,
 				"a": 1
 			},
-			"fogDensity": 30,
+			"fogDensity": 70,
 			"vinePrefab": "none",
-			"radius": 1000,
+			"radius": 2000,
 			"linksTo": "TeamErnesto_TestNode"
 		}
 	},

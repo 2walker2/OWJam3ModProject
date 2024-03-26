@@ -40,21 +40,6 @@
 				"keepLoaded": true
 			}
 		],
-		"singularities": [
-			{
-				"parentPath": "Sector/PlanetPrefab/VesselRoot/SingularityRoot",
-				"isRelativeToParent": true,
-				"rename": "VesselWarpInSingularity",
-				"type": "whiteHole",
-				"horizonRadius": 0.5,
-				"curve": [
-					{
-						"time": 0,
-						"value": 1
-					}
-				]
-			}
-		],
 		"remotes": [
 			{
 				"id": "Unmarked",
@@ -95,8 +80,9 @@
 	"Bramble": {
 		"nodes": [
 			{
-				"scale": 0.00001,
-				"linksTo": "Test Dimension"
+				"scale": 0,
+				"linksTo": "Test Dimension",
+				"preventRecursionCrash": true
 			}
 		]
 	},

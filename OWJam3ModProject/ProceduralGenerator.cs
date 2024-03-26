@@ -38,7 +38,9 @@ namespace OWJam3ModProject
         [Tooltip("The positions of the tiles to start already spawned")]
         [SerializeField] Vector2Int[] startingTilePositions;*/
         [Tooltip("The transforms to generate around")]
-        [SerializeField] List<Transform> generatorTransforms = new List<Transform>();
+        [SerializeField] List<Transform> generatorTransforms;
+        [Tooltip("Whether to ignore the generation region for each generator transform")]
+        [SerializeField] List<bool> generatorTransformIgnoreGenerationRegion;
 
         [Header("Editor")]
         [Tooltip("The transforms to generate around")]
@@ -77,6 +79,9 @@ namespace OWJam3ModProject
                 //Add player and probe to generator transforms
                 generatorTransforms.Add(Locator.GetPlayerTransform());
                 generatorTransforms.Add(Locator.GetProbe().transform);
+
+                generatorTransformIgnoreGenerationRegion.Add(false);
+                generatorTransformIgnoreGenerationRegion.Add(false);
             }
             //Editor initialization
             else
@@ -135,8 +140,10 @@ namespace OWJam3ModProject
             //Iterate over the generation transforms to generate tiles
             Dictionary<Transform, Vector2Int> generatorTiles = new Dictionary<Transform, Vector2Int>();
             bool anyGeneratorChanged = false;
-            foreach (Transform generatorTransform in generatorTransforms)
+            for (int i=0; i<generatorTransforms.Count; i++)
             {
+                Transform generatorTransform = generatorTransforms[i];
+
                 //Skip if transform's gameObject is deactivated
                 if (!generatorTransform.gameObject.activeSelf)
                 {
@@ -158,7 +165,7 @@ namespace OWJam3ModProject
                 //Generate if tile has changed or generator has just activated
                 if (generatorTile != generatorTransformsTilePrevious[generatorTransform] || !generatorTransformsActivePrevious[generatorTransform])
                 {
-                    GenerateArea(generatorTile);
+                    GenerateArea(generatorTile, generatorTransformIgnoreGenerationRegion[i]);
                     generatorTransformsActivePrevious[generatorTransform] = true;
                 }
 
@@ -204,7 +211,7 @@ namespace OWJam3ModProject
             }
         }
 
-        void GenerateArea(Vector2Int center)
+        void GenerateArea(Vector2Int center, bool ignoreGenerationRegion = false)
         {
             //Iterate over all positions to generate
             for (int x=-generationRange; x<=generationRange; x++)
@@ -213,12 +220,12 @@ namespace OWJam3ModProject
                 {
                     //Generate the tile
                     Vector2Int tileCoordinates = new Vector2Int(center.x + x, center.y + z);
-                    GenerateTile(tileCoordinates);
+                    GenerateTile(tileCoordinates, ignoreGenerationRegion: ignoreGenerationRegion);
                 }
             }
         }
 
-        void GenerateTile(Vector2Int tileCoordinates, GameObject prefab = null)
+        void GenerateTile(Vector2Int tileCoordinates, GameObject prefab = null, bool ignoreGenerationRegion = false)
         {
             //Skip if there's already a tile there
             if (generatedTiles.ContainsKey(tileCoordinates))
@@ -228,17 +235,20 @@ namespace OWJam3ModProject
             Vector3 spawnPosition = new Vector3(tileCoordinates.x * tileSize, 0, tileCoordinates.y * tileSize);
 
             //Skip if the tile position is not in a generation zone
-            bool inGenerationRegion = false;
-            foreach (Shape generationShape in generationRegion)
+            if (!ignoreGenerationRegion)
             {
-                if (generationShape.PointInside(transform.TransformPoint(spawnPosition)))
+                bool inGenerationRegion = false;
+                foreach (Shape generationShape in generationRegion)
                 {
-                    inGenerationRegion = true;
-                    break;
+                    if (generationShape.PointInside(transform.TransformPoint(spawnPosition)))
+                    {
+                        inGenerationRegion = true;
+                        break;
+                    }
                 }
+                if (!inGenerationRegion)
+                    return;
             }
-            if (!inGenerationRegion)
-                return;
 
             //Skip if tile position is in an exclusion zone
             foreach (Shape exclusionRegion in exclusionRegions)

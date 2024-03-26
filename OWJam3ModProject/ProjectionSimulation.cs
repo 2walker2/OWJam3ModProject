@@ -21,6 +21,8 @@ namespace OWJam3ModProject
 
         [Tooltip("The PauseMenuManager in the scene")]
         PauseMenuManager pauseMenuManager;
+        [Tooltip("The player's resources in the scene")]
+        PlayerResources playerResources;
 
         void Awake()
         {
@@ -36,12 +38,13 @@ namespace OWJam3ModProject
         void Start()
         {
             pauseMenuManager = FindObjectOfType<PauseMenuManager>();
+            playerResources = FindObjectOfType<PlayerResources>();
         }
 
         public void EnterSimulation()
         {
             playerInSimulation = true;
-            PlayerState._insideTheEye = true;
+            playerResources._invincible = true;
 
             playerKnewMeditationWhenEntering = PlayerData.GetPersistentCondition(MEDITATION_CONDITION);
             pauseMenuManager._skipToNextLoopButton.SetActive(false);
@@ -52,7 +55,7 @@ namespace OWJam3ModProject
         public void ExitSimulation()
         {
             playerInSimulation = false;
-            PlayerState._insideTheEye = false;
+            playerResources._invincible = false;
 
             pauseMenuManager._skipToNextLoopButton.SetActive(playerKnewMeditationWhenEntering);
             TimeLoop.SetSecondsRemaining(secondsRemainingWhenEntering);
