@@ -16,5 +16,11 @@
                 "a": 255
             }
         }
+    ],
+    "entryPositions": [
+        {
+            "id": "TeamErnesto_1",
+            "position": {"x":  0, "y":  0}
+        }
     ]
 }

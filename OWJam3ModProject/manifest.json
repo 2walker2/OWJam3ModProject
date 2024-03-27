@@ -1,10 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "OWJam3ModProject.dll",
-  "author": "Walker, GayCoffee, Greenpixel",
+  "author": "2walker2, GayCoffee, Greenpixel",
   "name": "Reflections",
   "uniqueName": "TeamErnesto.OWJam3ModProject",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "owmlVersion": "2.9.8",
-  "dependencies": [ "xen.NewHorizons", "xen.ModJam3" ]
+  "dependencies": [ "xen.NewHorizons", "xen.ModJam3" ],
+  "conflicts": [ "Alek.LightBramble" ]  
 }
