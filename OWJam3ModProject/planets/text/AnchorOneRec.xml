@@ -45,10 +45,6 @@
 	</TextBlock>
 	<ShipLogConditions>
 		<RevealFact>
-			<FactID>TeamErnesto_4</FactID>
-			<Condition>7</Condition>
-		</RevealFact>
-		<RevealFact>
 			<FactID>TeamErnesto_3</FactID>
 			<Condition>3</Condition>
 		</RevealFact>

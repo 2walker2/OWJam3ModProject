@@ -18,30 +18,10 @@
 			<ID>TeamErnesto_3</ID>
 			<Text>A Nomai named Calad noted that the three projection anchors act together to stabilize the area between them and that a projection stone was likely to be found there.</Text>
 		</ExploreFact>
-		
-		<ExploreFact>
-			<ID>TeamErnesto_4</ID>
-			<Text>A Nomai named Melina was bothered by the predictable nature of the projection, noting that knowing everything of an enviroment contradicts the Nomai's curiosity.</Text>
-		</ExploreFact>
-
-		<ExploreFact>
-			<ID>TeamErnesto_5</ID>
-			<Text>A Nomai named Calad was bothered by the lack of nature within the projection. Another Nomai noted that knowing the nature was simulated would defeat the purpose of adding it.</Text>
-		</ExploreFact>
-
-		<ExploreFact>
-			<ID>TeamErnesto_6</ID>
-			<Text>A Nomai named Primm was bothered by the artificiality of the projection, noting it seemed like "an attempt by someone to recreate their structures without understanding why they were built."</Text>
-		</ExploreFact>
 
 		<ExploreFact>
 			<ID>TeamErnesto_6.1</ID>
-			<Text>There is a passageway in the floor leading downwards. A Nomai named Primm noted that one could find their way back to the entrance from the passageway by traveling in the direction of Projection Anchor 1.</Text>
-		</ExploreFact>
-		
-		<ExploreFact>
-			<ID>TeamErnesto_7</ID>
-			<Text>The projection is procedurally generated from the knowledge of whoever is inside it.</Text>
+			<Text>There is a passageway in the floor leading downwards. A Nomai named Primm noted that Projection Anchor 1 was located between the passage and the projection pool entrance.</Text>
 		</ExploreFact>
 
 		<ExploreFact>

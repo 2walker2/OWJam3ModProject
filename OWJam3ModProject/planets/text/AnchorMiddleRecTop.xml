@@ -16,7 +16,7 @@
 	<TextBlock>
 		<ID>4</ID>
 		<ParentID>3</ParentID>
-		<Text>PRIMM: We can find our way back to the entrance from here by traveling in the direction of Projection Anchor 1.</Text>
+		<Text>PRIMM: If I am correct, Projection Anchor 1 is located between here and the entrance. This should allow us to find our way back to the projection pool when needed.</Text>
 	</TextBlock>
 	<ShipLogConditions>
 		<RevealFact>
