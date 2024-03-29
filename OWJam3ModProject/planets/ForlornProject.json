@@ -10,9 +10,9 @@
 	},
 	"Orbit": {
 		"primaryBody": "Jam 3 Sun",
-		"isTidallyLocked": true,
-		"alignmentAxis": {"y": 1}
-		//"isStatic": true //Remove when submitting
+		//"isTidallyLocked": true,
+		//"alignmentAxis": {"y": 1}
+		"isStatic": true //Remove when submitting
 	},
 	"ReferenceFrame": {
 		"hideInMap": false,

@@ -39,9 +39,5 @@
 		<Text>MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We’ll head for the incenter afterwards.</Text>
 	</TextBlock>
 	<ShipLogConditions>
-		<RevealFact>
-			<FactID>TeamErnesto_5</FactID>
-			<Condition>5</Condition>
-		</RevealFact>
 	</ShipLogConditions>
 </NomaiObject>
