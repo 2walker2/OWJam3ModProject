@@ -1,0 +1,107 @@
+ {
+  "$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/translation_schema.json",
+    "DialogueDictionary": {
+      //OutsideRec
+      "CALAD: Melina, is everything ready?":"卡拉德：梅莉娜，一切都已经准备好了吗？",      
+      "MELINA: Yes. Primm will arrive shortly for our first full test of this technology.":"梅莉娜：是的。普瑞姆很快就到，他会对这项技术进行首次全面测试。",
+      "CALAD: I hope it works. It’d be disheartening for it to not.":"卡拉德：希望它能成功。如果不能就太令人沮丧了。",
+      "MELINA: It’s more disheartening to hear you hoping, Calad, are you feeling well? It’s unlike you to hope!":"梅莉娜：听到你在抱有希望更让人沮丧，卡拉德。你还好吗？你不像是会抱有希望的人！",
+      "CALAD: This is something serious, Melina.":"卡拉德：这是件严肃的事情，梅莉娜。",
+      "MELINA: My apologies. I was merely attempting to lighten our emotions.":"梅莉娜：抱歉。我只是想让我们的心情明亮一点。",
+      "CALAD: Fortunate that this outpost isn’t on the night side, then.":"卡拉德：幸好这个前哨站不在夜晚的一侧。",
+      "MELINA: A joke that doesn’t poke at me? You truly might be unwell, friend! Regardless, Primm should be arriving soon. Let’s ready everything.":"梅琳娜：一个不拿我取乐的玩笑？你这是真的不太对劲儿了，朋友！不管怎样，普瑞姆应该很快就会到了。让我们做好全部准备。",
+
+      //FoyerRec
+      "PRIMM: Initial log: It works! Calad is truly a talented engineer; I’m most grateful of being his apprentice.":"普瑞姆：初始日志：成功了！卡拉德真是个天才工程师，能成为他的学徒我非常感激。",
+      "CALAD: It wasn’t just me, Primm. Melina developed the interface side of things, don’t let her talent go without credit.":"卡拉德：不只是我一个人的功劳，普瑞姆。梅莉娜开发了界面部分，别忽视她的才华。",
+      "MELINA: Thank you, Calad. Were you not committed to someone, I would think you’re flirting with me.":"梅莉娜：谢谢你，卡拉德。如果不是你已经有了正式的恋爱对象，我会以为你在跟我调情。",
+      "CALAD: If your brother heard you, Melina…":"卡拉德：梅莉娜，如果你兄弟听到了……",
+      "MELINA: He’d thank me for making you two meet, yes. Now, to the matter at our prehensile appendage.":"梅莉娜：他会感谢我让你们两个相遇的。现在谈谈正事吧。",
+      "MELINA: The projection is functioning wonderfully: Our minds can interact with each other in a simulated physical environment, and we can move freely even while stepping beyond the projection pool.":"梅莉娜：投影运行得非常好：我们的思维可以在模拟的物理环境中相互交流，即使走出投影池，我们也可以自由移动。",
+      "PRIMM: …Calad, Melina, where is the projection stone to return?":"普瑞姆：……卡拉德，梅莉娜，用于返回的投影石在哪儿？",
+      "MELINA: Has it disappeared? This is troubling…":"梅莉娜：它不见了吗？这可麻烦了……",
+      "CALAD: It is, but we shouldn’t panic: There should be a safeguard to return us, but we’ll need to find it.":"卡拉德：是的，但我们不用惊慌：应该有一个传送我们回去的安全措施，我们需要找到它。",
+      "MELINA: If so, let’s start moving.":"梅莉娜：如果是这样，那我们开始行动吧。",
+
+      //AnchorOneRec
+      "CALAD: This is a projection anchor. It helps stabilize the construction of this space.":"卡拉德：这是一个投影锚，它有助于稳定这个空间的构造。",
+      "PRIMM: While I’d love to learn about its intricacies, I fail to see how this helps us exit this place.":"普瑞姆：虽然我很想了解它的复杂细节，但我不明白这如何能帮助我们离开这里。",
+      "CALAD: Yes, it’s not helpful by itself, but it works with the other two to stabilize the area between them. Another projection stone should <![CDATA[<Color=orange>]]>load<![CDATA[</Color>]]> there.":"卡拉德：是的，它本身并不起作用，但它与另外两个一起工作，以稳定它们之间的区域。另一块投影石应该<![CDATA[<Color=orange>]]>加载<![CDATA[</Color>]]>在那里。",
+      "MELINA: <![CDATA[<Color=orange>]]>Loading<![CDATA[</Color>]]> out of thin air? This projection is more fantastical than I thought.":"梅莉娜：凭空<![CDATA[<Color=orange>]]>加载<![CDATA[</Color>]]>？这个投影比我想象的还要奇幻。",
+      "CALAD: Does that bother you, Melina?":"卡拉德：这让你感到困扰吗，梅莉娜？",
+      "MELINA: How couldn’t it? As Nomai, we strive to learn about our surrounding. Doesn’t it go against our philosophy to exist in such a malleable yet predictable place?":"梅莉娜：怎么会不困扰呢？作为挪麦人，我们努力学习周围的一切。在这样一个既可塑又可预测的地方生存，难道不违背我们的理念吗？",
+      "PRIMM: I agree with Melina… It’d be strange to have no unknowns.":"普瑞姆：我同意梅莉娜的看法……没有未知的东西会很奇怪。",
+      "CALAD: I… Cannot deny that.":"卡拉德：我……不能否认这一点。",
+      "CALAD: Let’s visit the other anchors, since we’re still monitoring the functionality of the projection.":"卡拉德：既然我们还在监测投影的功能，去看看其他的锚吧。",
+
+      //AnchorTwoRec
+      "CALAD: Walking through this place makes me miss the open night sky. Remind me to add some exterior areas on future iterations, please.":"卡拉德：走在这里让我怀念开阔的夜空。请提醒我在未来的更新中增加一些外部区域。",
+      "PRIMM: I share the feeling, Calad. Perhaps a garden could be made, or an observatory?":"普瑞姆：我有同感，卡拉德。也许可以建一个花园，或一个天文台？",
+      "MELINA: I’m unsure that’d be enough, Primm. Hypothesis: Making a facsimile of the sky will not suffice; only the true version will satiate our love for it.":"梅莉娜：我不确定这是否足够，普瑞姆。假设：制造一个天空的仿制品是不够的，只有真实的天空才能满足我们对它的热爱。",
+      "CALAD: That’s not a comforting hypothesis, Melina. Why do you believe that?":"卡拉德：这个假设令人感到不安，梅莉娜。你为什么会这样认为？",
+      "MELINA: I lack concrete evidence, but I cannot think of a situation where, knowing I’m looking at code and algorithms, I’d be satisfied.":"梅莉娜：虽然我没有具体的证据，但我想不出在什么情况下，我明知道自己看的是代码和算法，还能感到满足。",
+      "CALAD: Perhaps… Perhaps I feel the same.":"卡拉德：也许……也许我有同样的感受。",
+      "CALAD: …":"卡拉德：……",
+      "MELINA: Let us search for the other Anchors; we should assure ourselves they all function well. We’ll head for the incenter afterwards.":"梅莉娜：让我们去寻找其他的锚吧，确保它们都正常运行。之后我们前往三角形的内心点。",
+
+      //AnchorThreeRec
+      "MELINA: Very well, this is the last anchor. We should attempt to triangulate them now.":"梅莉娜：好的，这是最后一个锚。现在我们应该尝试用它们进行三点定位。",
+      "PRIMM: …":"普瑞姆：……",
+      "CALAD: Is something the matter, Primm?":"卡拉德：怎么了，普瑞姆？",
+      "PRIMM: I realize there’s no nature here. Everything is constructed, but it also doesn’t feel lived in; like an attempt by someone to recreate our structures without understanding why we build them.":"普瑞姆：我发现这里没有自然环境。所有东西都是被建造出来的，但没有生活的气息；就像是有人试图重建我们的建筑，却不理解我们为什么要建造它们。",
+      "MELINA: It is so, in a way. But I expect it’ll feel lived in once we live here.":"梅莉娜：某种程度上来说，确实如此。不过我想，一旦我们住在这里，就会有生活的气息了。",
+      "CALAD: I don’t think that will help, Melina. I agree with Primm’s feeling.":"卡拉德：我不认为那会有帮助，梅莉娜。我同意普瑞姆的感觉。",
+      "PRIMM: Is this project truly a good idea?":"普瑞姆：这个项目真的是个好主意吗？",
+      "CALAD: I’m unsure, Primm. Regardless, let us exit this place; we’ll have enough time to think on the way.":"卡拉德：我不确定，普瑞姆。不管怎样，我们先离开这里。路上有足够的时间来思考。",
+
+      //AnchorMiddleRecTop
+      "MELINA: I don't see a projection stone here.":"梅莉娜：我没看到这里有投影石。",
+      "CALAD: No, but there is a way forward. Perhaps we must delve deeper before we may depart.":"卡拉德：是的，但前面有条路。也许我们必须深入探索才能离开。",
+      "CALAD: We would do well to perform a thorough assesment of this projection if we do not wish to return later.":"卡拉德：如果我们不想以后再回来，最好现在对这个投影进行彻底评估。",
+      "PRIMM: We can find our way back to the entrance from here by traveling in the direction of Projection Anchor 1.":"普瑞姆：我们可以向投影锚一的方向行进，从这里找到返回入口的路。",
+      
+      //AnchorMiddleRec
+      "PRIMM: I must wonder what would happen if another species interacted with this space.":"普瑞姆：我在想，如果其他物种与这个空间互动会发生什么。",
+      "MELINA: The projection works by interfacing with our knowledge and building from it. Hypothesis: Should a different species enter here, its architecture would closely match their experiences.":"梅莉娜：投影的工作原理是与我们的知识对接，并以此为基础进行构造。假设：如果有不同的物种进入这里，它的建筑结构会与他们的经历相匹配。",
+      "CALAD: Perhaps, if this structure is left alone, someone else will find it and prove that hypothesis.":"卡拉德：也许。如果这个构筑物被遗弃，其他人会找到它并验证这个假设。",
+      "MELINA: As much as I'd enjoy to see it, I doubt we'll be present for such an event.":"梅莉娜：虽然很想亲眼见证，但我觉得我们不太可能在这种事发生时在场。",
+      "CALAD: Regardless, now that we've reached this reflection, we're most likely to find a projection stone in the position on this side corresponding to where we first entered the projection.":"卡拉德：不管怎样，现在我们已经到达了这个倒影，在这一侧，我们很可能在首次进入投影时的相应位置找到投影石。",
+      "PRIMM: I am uncertain how we might locate that position without some sort of marker to lead the way.":"普瑞姆：我不确定我们如何在没有某种标记指引的情况下定位。",
+
+      //EndingRec
+      "CALAD: Before we exit this place, I believe we should discuss our perspectives.":"卡拉德：离开这里之前，我认为我们应该讨论一下各自的观点。",
+      "MELINA: In regards to what, Calad?":"梅莉娜：关于什么，卡拉德？",
+      "CALAD: This place. Exploring it, we’ve all found it to be inadequate. It lacks natural qualities, it lacks will in its construction, and it lacks mysteries.":"卡拉德：这个地方。在探索中，我们都发现了它的不足。它缺乏自然本色，缺乏建造意志，也缺乏神秘感。",
+      "CALAD: We created this projection in order to have a safeguard once even our last stars fade out, but, after exploring it ourselves, I wonder if it might be detrimental.":"卡拉德：我们创造这个投影是为了在我们最后的恒星也消逝后有一个保障，但在亲自探索后，我不知道它是否会带来不利影响。",
+      "PRIMM: Do you suggest we simply accept our fate?":"普瑞姆：你是说我们就这样接受命运吗？",
+      "CALAD: I suggest we, at the very least, try to stay true to our principles. We are nomads to satiate our curiosity, to meet phenomena we don’t understand and do our best to grasp it. It’s unlike our species to endure for no reason than fear of the end.":"卡拉德：我认为，我们至少要努力坚持自己的原则。我们四处游牧，是为了满足好奇，为了遇见我们不理解的现象并尽全力掌握它。仅仅因为对灭亡的恐惧而用这种方式维持自身的存在，不像我们这个物种会做的事。",
+      "MELINA: The alternative to our projection is daunting. Probability is not friendly to us, now.":"梅莉娜：我们投影方案的替代选择令人畏惧。现在概率对我们不利。",
+      "PRIMM: We simply must seek a different solution; one that preserves the spirit of our clan and <![CDATA[<Color=orange>]]>community<![CDATA[</Color>]]>.":"普瑞姆：我们必须寻找一个不同的解决方案，一个能够保留我们家族和<![CDATA[<Color=orange>]]>社群<![CDATA[</Color>]]>精神的方案。",
+      "PRIMM: Fear of failure is a poor reason not to try.":"普瑞姆：害怕失败是拒绝尝试的拙劣理由。"
+
+    },
+    "ShipLogDictionary": {
+      "Procedural Projection":"程序投影",
+      "The Nomai built a simulation accessible through a projection pool. During the first practical test, three Nomai became trapped inside the projection. ":"挪麦人建造了一个可以通过投影池进入的模拟装置。在第一次实践测试中，三个挪麦人被困在了投影里。",
+      "A Nomai named Calad noted that the three projection anchors act together to stabilize the area between them and that a projection stone was likely to be found there.":"一个名叫卡拉德的挪麦人指出，三个投影锚共同作用以稳定它们之间的区域，并且很可能在那里找到一块投影石。",
+      "A Nomai named Melina was bothered by the predictable nature of the projection, noting that knowing everything of an enviroment contradicts the Nomai's curiosity.":"一个名叫梅莉娜的挪麦人对投影的可预测性感到困扰，表示对环境的一切了如指掌与挪麦人的好奇心相矛盾。",
+      "A Nomai named Calad was bothered by the lack of nature within the projection. Another Nomai noted that knowing the nature was simulated would defeat the purpose of adding it.":"一个名叫卡拉德的挪麦人对投影中缺乏自然元素感到困扰。另一个挪麦人指出，如果知道自然是模拟出来的，就失去了添加它的意义。",
+      "A Nomai named Primm was bothered by the artificiality of the projection, noting it seemed like \"an attempt by someone to recreate their structures without understanding why they were built.\"":"一个名叫普瑞姆的挪麦人对投影的人工成分感到不满，指这似乎是“某人试图重建他们的建筑，却不了解其建造的原因”。",
+      "There is a passageway in the floor leading downwards. A Nomai named Primm noted that one could find their way back to the entrance from the passageway by traveling in the direction of Projection Anchor 1.":"地板上有一条向下的通道。一个名叫普瑞姆的挪麦人指出，只要沿着投影锚1的方向走，就能从通道找到返回入口的路。",
+      "The projection is procedurally generated from the knowledge of whoever is inside it.":"投影是根据在其中的人的知识自动生成的。",
+      "I found a Stranger-styled area below the Nomai structures.":"我在挪麦人的建筑下面发现了一片外星站风格的区域。",
+      "A Nomai named Calad believed a projection stone would be found in the same position on the underside as the entrance is on the top side. A Nomai named Primm was unsure how to find that location without some sort of marker.":"一个名叫卡拉德的挪麦人认为，投影石在底部的位置与其在上方入口处的位置相同。一个名叫普瑞姆的挪麦人不确定如何在没有某种标记的情况下找到那个位置。",
+      "I found a projection stone that will allow me to escape the projection.":"我找到了可以让我逃离投影的投影石。",
+      "The Nomai concluded they wouldn't finish this project, as they considered it to go against Nomai philosophy.":"挪麦人得出结论，他们不会完成这个项目，因为他们认为这违背了挪麦的哲学理念。"
+    },
+    "UIDictionary":{
+      "Thanks for downloading Reflections! This mod was made for the 2024 New Horizons Single Planet Mod Jam.\n\nUse of the Suit Log mod is highly recommended.":"感谢下载 Reflections 倒影！这个模组是为 2024 年 New Horizons 单星球模组创作大赛制作的。强烈推荐使用 Suit Log 模组。",
+      "Forlorn Project":"被遗弃的项目",
+      "Anchor 1":"锚点一",
+      "Anchor 2":"锚点二",
+      "Anchor 3":"锚点三",
+      "Projection Anchor":"投影锚"
+    },
+    "OtherDictionary":{
+    }
+}
