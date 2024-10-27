@@ -25,29 +25,23 @@ namespace OWJam3ModProject
         [SerializeField] Transform generationRoot;
         [Tooltip("The set of prefabs that can be generated")]
         [SerializeField] GameObject[] spawnablePrefabs;
-        [Tooltip("The set of unique tile prefabs that can be generated (only appear once)")]
-        [SerializeField] GameObject[] uniquePrefabs;
-        [Tooltip("The chance of each unique prefab spawning every time a tile is generated (must have same length as unique prefabs list)")]
-        [SerializeField] float[] uniqueChances;
         [Tooltip("The size of a tile in the grid")]
         [SerializeField] float tileSize;
         [Tooltip("The distance around the player to generate tiles")]
         [SerializeField] int generationRange;
-        /*[Tooltip("The tiles to start already spawned")]
-        [SerializeField] GameObject[] startingTilePrefabs;
-        [Tooltip("The positions of the tiles to start already spawned")]
-        [SerializeField] Vector2Int[] startingTilePositions;*/
         [Tooltip("The transforms to generate around")]
         [SerializeField] List<Transform> generatorTransforms;
         [Tooltip("Whether to ignore the generation region for each generator transform")]
         [SerializeField] List<bool> generatorTransformIgnoreGenerationRegion;
+        [Tooltip("The position to store deactivated tiles at")]
+        [SerializeField] Transform deactivatedTileStoragePosition;
 
         [Header("Editor")]
         [Tooltip("The transforms to generate around")]
         [SerializeField] Transform[] editorGeneratorTransforms;
 
         [Tooltip("The tiles that have been generated")]
-        Dictionary<Vector2Int, GameObject> generatedTiles;
+        Dictionary<Vector2Int, GeneratorTile> generatedTiles;
         [Tooltip("The tile each generator transform was on last frame")]
         Dictionary<Transform, Vector2Int> generatorTransformsTilePrevious = new Dictionary<Transform, Vector2Int>();
         [Tooltip("Whether each generator's gameObject was active last frame")]
@@ -56,6 +50,9 @@ namespace OWJam3ModProject
         List<Shape> exclusionRegions = new List<Shape>();
         [Tooltip("Saved coordinates of unique tiles (GameObject is prefab)")]
         Dictionary<Vector2Int, GameObject> uniqueTilePositions = new Dictionary<Vector2Int, GameObject>();
+
+        [Tooltip("A dictionary of deactivated tiles for reuse later (by tile id)")]
+        Dictionary<int, List<GeneratorTile>> tilePool = new Dictionary<int, List<GeneratorTile>>();
         #endregion
 
         #region Unity Methods
@@ -65,11 +62,17 @@ namespace OWJam3ModProject
             if (generatorID == "")
                 generatorID = gameObject.name;
             generatorInstances[generatorID] = this;
+
+            //Initialize tile pool
+            for (int i=0; i<spawnablePrefabs.Length; i++)
+            {
+                tilePool[i] = new List<GeneratorTile>();
+            }
         }
 
         void Start()
         {
-            generatedTiles = new Dictionary<Vector2Int, GameObject>();
+            generatedTiles = new Dictionary<Vector2Int, GeneratorTile>();
 
             //In-game initialization
             if (OWJam3ModProject.inGame)
@@ -100,12 +103,6 @@ namespace OWJam3ModProject
                 generatorTransformsTilePrevious[generatorTransform] = initialTilePrevious;
                 generatorTransformsActivePrevious[generatorTransform] = generatorTransform.gameObject.activeSelf;
             }
-
-            //Place starting tiles
-            /*for (int i = 0; i < startingTilePrefabs.Length; i++)
-            {
-                GenerateTile(startingTilePositions[i], startingTilePrefabs[i]);
-            }*/
         }
 
         void OnDestroy()
@@ -125,11 +122,6 @@ namespace OWJam3ModProject
         void FixShaders()
         {
             foreach (GameObject prefab in spawnablePrefabs)
-            {
-                NewHorizons.Utility.Files.AssetBundleUtilities.ReplaceShaders(prefab);
-            }
-
-            foreach (GameObject prefab in uniquePrefabs)
             {
                 NewHorizons.Utility.Files.AssetBundleUtilities.ReplaceShaders(prefab);
             }
@@ -181,7 +173,7 @@ namespace OWJam3ModProject
             if (anyGeneratorChanged)
             {
                 HashSet<Vector2Int> tilesToDestroy = new HashSet<Vector2Int>();
-                foreach (KeyValuePair<Vector2Int, GameObject> pair in generatedTiles)
+                foreach (KeyValuePair<Vector2Int, GeneratorTile> pair in generatedTiles)
                 {
                     //Check each generator to see if this tile is in range
                     bool insideRange = false;
@@ -202,10 +194,11 @@ namespace OWJam3ModProject
                         tilesToDestroy.Add(pair.Key);
                 }
 
-                //Destroy all tiles found to not be in range of any generator
+                //Deactivate all tiles not in range of any generator and add them to the pool
                 foreach (Vector2Int tileCoordinates in tilesToDestroy)
                 {
-                    Destroy(generatedTiles[tileCoordinates].gameObject);
+                    generatedTiles[tileCoordinates].transform.position = deactivatedTileStoragePosition.position;
+                    tilePool[generatedTiles[tileCoordinates].tileId].Add(generatedTiles[tileCoordinates]);
                     generatedTiles.Remove(tileCoordinates);
                 }
             }
@@ -225,7 +218,7 @@ namespace OWJam3ModProject
             }
         }
 
-        void GenerateTile(Vector2Int tileCoordinates, GameObject prefab = null, bool ignoreGenerationRegion = false)
+        void GenerateTile(Vector2Int tileCoordinates, bool ignoreGenerationRegion = false)
         {
             //Skip if there's already a tile there
             if (generatedTiles.ContainsKey(tileCoordinates))
@@ -258,36 +251,33 @@ namespace OWJam3ModProject
             }
 
             //Find the tile prefab
-            GameObject spawnPrefab = prefab; //Specified tile
-            if (uniqueTilePositions.ContainsKey(tileCoordinates)) //Previously saved unique tile
-                spawnPrefab = uniqueTilePositions[tileCoordinates];
-            if (spawnPrefab == null) //Random unique tile
+            int spawnPrefabIndex = UnityEngine.Random.Range(0, spawnablePrefabs.Length);
+            GameObject spawnPrefab = spawnablePrefabs[spawnPrefabIndex];
+
+            GameObject spawnedGO = null;
+            GeneratorTile spawnedTile = null;
+            //Check if there is a matching tile in the pool
+            if (tilePool[spawnPrefabIndex].Count > 0)
             {
-                for (int i=0; i<uniquePrefabs.Length; i++) //Check chance of each unique tile spawning
-                {
-                    if (uniquePrefabs[i] != null && UnityEngine.Random.Range(0.0f, 1.0f) < uniqueChances[i])
-                    {
-                        //Select unique tile, remove it from the available unique tiles, and save position
-                        spawnPrefab = uniquePrefabs[i];
-                        uniquePrefabs[i] = null;
-                        uniqueTilePositions[tileCoordinates] = spawnPrefab;
-                        break;
-                    }
-                }
+                int lastIndex = tilePool[spawnPrefabIndex].Count - 1;
+                spawnedTile = tilePool[spawnPrefabIndex][lastIndex];
+                spawnedGO = spawnedTile.gameObject;
+                tilePool[spawnPrefabIndex].RemoveAt(lastIndex);
             }
-            if (spawnPrefab == null) //Random standard tile
+            //If no matching tile was found, instantiate one
+            else
             {
-                int spawnPrefabIndex = UnityEngine.Random.Range(0, spawnablePrefabs.Length);
-                spawnPrefab = spawnablePrefabs[spawnPrefabIndex];
+                spawnedGO = Instantiate(spawnPrefab, generationRoot);
+                spawnedTile = spawnedGO.GetComponent<GeneratorTile>();
+                spawnedTile.tileId = spawnPrefabIndex;
             }
 
-            //Spawn the tile
-            GameObject spawnedGO = Instantiate(spawnPrefab, generationRoot);
+            //Place the tile
             spawnedGO.transform.localPosition = spawnPosition;
             spawnedGO.transform.Rotate(transform.up, 90 * UnityEngine.Random.Range(0, 4)); //Randomize rotation in increments of 90 degrees
 
             //Add it to the dictionary
-            generatedTiles[tileCoordinates] = spawnedGO;
+            generatedTiles[tileCoordinates] = spawnedTile;
         }
         #endregion
 
